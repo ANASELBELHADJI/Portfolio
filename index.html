@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310121A'/%3E%3Cpath d='M0 0h64L0 64z' fill='%23F2A25C' opacity='.25'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='monospace' font-size='24' font-weight='700' fill='%23ECEBE6'%3EAE%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Anas El Belhadji — Product Owner × Transformation digitale">
+<meta property="og:description" content="Étudiant ingénieur (IMT Nord Europe). Stage de fin d'études de 6 mois dès février 2027.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Anas El Belhadji</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfolio d'Anas El Belhadji, étudiant ingénieur — Product Owner et Transformation digitale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: un tableau de tickets — hero en user story, diagramme à deux couloirs (Produit / Transformation), frise d'expériences, tickets de projets filtrables avec fiche détaillée */
+:root{
+  --bg:#10121A; --surface:#171A24; --surface-2:#1F2331; --line:#2C3142; --fg:#ECEBE6; --muted:#9DA2B4;
+  --po:#F2A25C; --tx:#62CEC2; --ia:#B6A8FF;
+  --po-soft:rgba(242,162,92,.13); --tx-soft:rgba(98,206,194,.13); --ia-soft:rgba(182,168,255,.13);
+  --glow:rgba(255,255,255,.05); --scrim:rgba(5,7,12,.6);
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.0625rem; --s-lg:1.375rem; --s-xl:2rem; --s-2xl:clamp(2.6rem,7vw,5rem);
+  --radius:10px; --wrap:1120px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F1F2F6; --surface:#FFFFFF; --surface-2:#E7E9F1; --line:#D3D7E3; --fg:#161925; --muted:#5A5F74;
+    --po:#B05B14; --tx:#0E776C; --ia:#5843C6;
+    --po-soft:rgba(176,91,20,.10); --tx-soft:rgba(14,119,108,.10); --ia-soft:rgba(88,67,198,.10);
+    --glow:rgba(22,25,37,.04); --scrim:rgba(22,25,37,.35);
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F1F2F6; --surface:#FFFFFF; --surface-2:#E7E9F1; --line:#D3D7E3; --fg:#161925; --muted:#5A5F74;
+  --po:#B05B14; --tx:#0E776C; --ia:#5843C6;
+  --po-soft:rgba(176,91,20,.10); --tx-soft:rgba(14,119,108,.10); --ia-soft:rgba(88,67,198,.10);
+  --glow:rgba(22,25,37,.04); --scrim:rgba(22,25,37,.35);
+  color-scheme:light;
+}
+
+/* Langue : FR par défaut, EN sur demande */
+:root:not([data-lang="en"]) [data-l="en"]{display:none!important}
+:root[data-lang="en"] [data-l="fr"]{display:none!important}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:var(--s-md);line-height:1.6;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--tx);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---------- En-tête ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
+.progress i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--po),var(--tx))}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:1rem;flex-shrink:0}
+.mono-badge{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-family:var(--mono);font-size:.8rem;font-weight:500;background:linear-gradient(135deg,var(--po-soft) 0 50%,var(--tx-soft) 50% 100%);border:1px solid var(--line)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{text-decoration:none;font-size:var(--s-sm);color:var(--muted);padding:6px 10px;border-radius:6px;transition:color .2s,background .2s}
+.nav a:hover,.nav a.on{color:var(--fg);background:var(--surface-2)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;flex-shrink:0}
+.lang button{font:500 .78rem/1 var(--mono);letter-spacing:.06em;color:var(--muted);background:none;border:0;border-radius:999px;padding:7px 11px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+@media (max-width:820px){.nav{display:none}.lang{margin-left:auto}}
+
+/* ---------- Hero ---------- */
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
+.hero-text{min-width:0;display:flex;flex-direction:column;gap:22px}
+.eyebrow{font:500 var(--s-xs)/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:var(--s-2xl);font-weight:800;letter-spacing:-.035em}
+.roles{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2em .45em;font-family:var(--display);font-weight:700;font-size:clamp(1.35rem,3vw,2rem);line-height:1.15}
+.roles .po{color:var(--po)} .roles .tx{color:var(--tx)}
+.roles .x{color:var(--muted);font-weight:500;font-size:.8em}
+.lead{color:var(--muted);max-width:56ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:var(--s-sm);padding:11px 18px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;font-family:var(--body);transition:border-color .2s,transform .2s}
+.btn:hover{border-color:var(--muted);transform:translateY(-1px)}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:var(--s-sm);color:var(--muted)}
+.facts span{display:inline-flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--tx);box-shadow:0 0 0 4px var(--tx-soft);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px transparent}}
+
+/* Ticket user story */
+.story{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 24px 60px -30px rgba(0,0,0,.55);overflow:hidden;transition:transform .2s ease-out}
+.story-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line);font:500 var(--s-xs)/1 var(--mono)}
+.story-head .type{color:var(--muted)}
+.pill{margin-left:auto;padding:5px 9px;border-radius:999px;background:var(--tx-soft);color:var(--tx);letter-spacing:.02em}
+.story-body{padding:20px 18px 18px;display:flex;flex-direction:column;gap:18px}
+.story-text{font-size:1.06rem;line-height:1.55}
+.story-text b{font-weight:600}
+.kw{font:500 .76rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--po);margin-right:.35em}
+.ac-title{font:500 var(--s-xs)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ac{display:flex;flex-direction:column;gap:4px;font-size:var(--s-sm)}
+.ac a{display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:start;text-decoration:none;padding:7px 8px;margin-inline:-8px;border-radius:7px;transition:background .2s}
+.ac a:hover{background:var(--surface-2)}
+.ac .go{font:500 .7rem/1.9 var(--mono);color:var(--muted);white-space:nowrap;transition:color .2s,transform .2s}
+.ac a:hover .go{color:var(--tx);transform:translateX(2px)}
+.check{width:20px;height:20px;border-radius:5px;border:1px solid var(--tx);background:var(--tx-soft);display:grid;place-items:center;margin-top:1px}
+.check path{stroke:var(--tx);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:16;stroke-dashoffset:0;animation:tick .45s ease-out both}
+.ac li:nth-child(1) path{animation-delay:.5s}
+.ac li:nth-child(2) path{animation-delay:.85s}
+.ac li:nth-child(3) path{animation-delay:1.2s}
+@keyframes tick{from{stroke-dashoffset:16}to{stroke-dashoffset:0}}
+.story-foot{display:flex;flex-wrap:wrap;gap:8px 20px;padding:12px 18px;border-top:1px dashed var(--line);font:400 var(--s-xs)/1.4 var(--mono);color:var(--muted)}
+.story-foot b{color:var(--fg);font-weight:500}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+@media (max-width:420px){.ac .go{display:none}.ac a{grid-template-columns:20px 1fr}}
+
+/* ---------- Sections ---------- */
+section.block{border-top:1px solid var(--line)}
+section.block>.wrap{padding-block:clamp(56px,8vw,96px);display:flex;flex-direction:column;gap:36px}
+.sec-head{display:flex;flex-direction:column;gap:10px;max-width:62ch}
+.sec-head h2{font-size:var(--s-xl);font-weight:700}
+.sec-head p{color:var(--muted)}
+.hint{font:400 var(--s-xs)/1.4 var(--mono);color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+.hint::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--tx)}
+
+/* Deux métiers */
+.profile-text{font-size:1.14rem;line-height:1.65;max-width:66ch}
+.venn{display:flex;flex-direction:column;align-items:center;gap:6px}
+.venn svg{width:100%;max-width:560px;height:auto;overflow:visible}
+.venn .lbl{font-family:var(--display);font-weight:700;font-size:19px;fill:var(--fg);pointer-events:none}
+.venn .sub{font-family:var(--mono);font-size:11px;fill:var(--muted);letter-spacing:.06em;pointer-events:none}
+.venn .zone{cursor:pointer;transition:opacity .25s,stroke-width .2s}
+.venn .zone:focus{outline:none}
+.venn .zone:hover,.venn .zone:focus-visible{stroke-width:3}
+.venn svg[data-focus] .zone{opacity:.3}
+.venn svg[data-focus="po"] .zone[data-zone="po"],.venn svg[data-focus="tx"] .zone[data-zone="tx"],.venn svg[data-focus="mid"] .zone[data-zone="mid"]{opacity:1}
+.venn svg[data-focus="mid"] .zone[data-zone="po"],.venn svg[data-focus="mid"] .zone[data-zone="tx"]{opacity:.55}
+.lanes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.lane-col{min-width:0;padding:22px;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:14px;transition:opacity .25s,transform .25s,border-color .25s}
+.lane-col.mid{background:linear-gradient(90deg,var(--po-soft),var(--tx-soft));border-color:transparent}
+.lanes[data-focus] .lane-col{opacity:.35}
+.lanes[data-focus="po"] .lane-col.po{opacity:1;transform:translateY(-4px);border-color:var(--po)}
+.lanes[data-focus="tx"] .lane-col.tx{opacity:1;transform:translateY(-4px);border-color:var(--tx)}
+.lanes[data-focus="mid"] .lane-col.mid{opacity:1;transform:translateY(-4px);border-color:var(--fg)}
+.lane-col h3{font-size:var(--s-lg);font-weight:700}
+.lane-col .who{font:500 var(--s-xs)/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.lane-col.po .who{color:var(--po)} .lane-col.tx .who{color:var(--tx)}
+.lane-col>p{color:var(--muted);font-size:var(--s-sm)}
+.lane-col ul{display:flex;flex-direction:column;gap:8px;font-size:var(--s-sm)}
+.lane-col li{display:grid;grid-template-columns:14px 1fr;gap:8px}
+.lane-col li::before{content:"";width:6px;height:6px;border-radius:50%;margin-top:.62em;background:var(--fg)}
+.lane-col.po li::before{background:var(--po)} .lane-col.tx li::before{background:var(--tx)}
+.lane-link{margin-top:auto;align-self:flex-start;font:500 var(--s-xs)/1 var(--mono);background:none;border:0;padding:8px 0 0;color:var(--fg);cursor:pointer;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.lane-col.po .lane-link{color:var(--po)} .lane-col.tx .lane-link{color:var(--tx)}
+.lane-link:hover{text-decoration-thickness:2px}
+@media (max-width:860px){.lanes{grid-template-columns:1fr}}
+
+/* Expériences */
+.timeline{display:flex;flex-direction:column}
+.job{display:grid;grid-template-columns:190px 1fr;gap:28px;padding-block:30px;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.job-when{display:flex;flex-direction:column;gap:6px;font:400 var(--s-xs)/1.5 var(--mono);color:var(--muted)}
+.job-when .tag{align-self:flex-start;padding:4px 8px;border-radius:999px;font-size:.72rem;letter-spacing:.04em}
+.tag.po{background:var(--po-soft);color:var(--po)} .tag.tx{background:var(--tx-soft);color:var(--tx)} .tag.ia{background:var(--ia-soft);color:var(--ia)}
+.job-main{min-width:0;display:flex;flex-direction:column;gap:14px}
+.job-main h3{font-size:var(--s-lg);font-weight:700}
+.job-main .org{color:var(--muted);font-size:var(--s-sm);margin-top:4px}
+.points{display:flex;flex-direction:column;gap:12px;max-width:70ch}
+.points li{font-size:var(--s-sm);color:var(--muted);padding-left:16px;border-left:2px solid var(--line);transition:border-color .2s}
+.points li:hover{border-left-color:var(--tx)}
+.points b{color:var(--fg);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font:400 .74rem/1 var(--mono);padding:6px 8px;border-radius:5px;background:var(--surface-2);color:var(--fg)}
+@media (max-width:700px){.job{grid-template-columns:1fr;gap:12px}}
+
+/* Projets */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:500 var(--s-xs)/1 var(--mono);letter-spacing:.04em;padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:color .2s,border-color .2s}
+.filters button:hover{color:var(--fg)}
+.filters button[aria-pressed="true"]{color:var(--fg);border-color:var(--fg)}
+.filters .sw{width:8px;height:8px;border-radius:50%}
+.filters .n{font-size:.7rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px}
+.ticket{min-width:0;position:relative;cursor:pointer;background:radial-gradient(420px circle at var(--mx,50%) var(--my,-40%),var(--glow),transparent 60%),var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s}
+.ticket:hover,.ticket:focus-visible{border-color:var(--muted);transform:translateY(-3px)}
+.ticket.pop{animation:pop .35s ease-out}
+@keyframes pop{from{transform:scale(.97)}to{transform:none}}
+.t-top{display:flex;justify-content:space-between;gap:12px;font:400 var(--s-xs)/1 var(--mono);color:var(--muted)}
+.ticket h3{font-size:1.18rem;font-weight:700}
+.ticket>p{font-size:var(--s-sm);color:var(--muted)}
+.ticket .chips{margin-top:auto}
+.t-lanes{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:12px;border-top:1px dashed var(--line)}
+.t-lanes .tag{font:500 .72rem/1 var(--mono);padding:5px 8px;border-radius:999px}
+.more-btn{margin-left:auto;font:500 .74rem/1 var(--mono);color:var(--fg);display:inline-flex;gap:6px;align-items:center}
+.more-btn .arr{display:inline-block;transition:transform .2s}
+.ticket:hover .more-btn .arr{transform:translateX(4px)}
+.aside-note{font-size:var(--s-sm);color:var(--muted);padding:16px 18px;border:1px dashed var(--line);border-radius:var(--radius);max-width:80ch}
+.aside-note b{color:var(--fg)}
+
+/* Fiche projet (panneau latéral) */
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:20;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(580px,100%);z-index:21;background:var(--surface);border-left:1px solid var(--line);box-shadow:-30px 0 60px -30px rgba(0,0,0,.5);transform:translateX(100%);visibility:hidden;transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s linear .32s;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.drawer.open{transform:none;visibility:visible;transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.d-head{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--line);font:500 var(--s-xs)/1 var(--mono);color:var(--muted)}
+.d-head .ctrl{margin-left:auto;display:flex;gap:6px}
+.icon-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);cursor:pointer;font:500 .95rem/1 var(--mono);display:grid;place-items:center;transition:border-color .2s}
+.icon-btn:hover{border-color:var(--muted)}
+.d-body{flex:1;overflow-y:auto;padding:26px 20px 34px;display:flex;flex-direction:column;gap:24px;overscroll-behavior:contain}
+.d-title{display:flex;flex-direction:column;gap:12px}
+.d-title h3{font-size:clamp(1.5rem,4vw,1.9rem);font-weight:800;letter-spacing:-.02em}
+.d-sec{display:flex;flex-direction:column;gap:10px}
+.d-sec h4{font:500 var(--s-xs)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.d-sec p{font-size:var(--s-sm);line-height:1.65}
+.d-sec .list{display:flex;flex-direction:column;gap:9px}
+.d-sec .list li{font-size:var(--s-sm);padding-left:14px;border-left:2px solid var(--line);color:var(--muted)}
+.d-sec .list b{color:var(--fg);font-weight:600}
+.flows{display:flex;flex-direction:column;gap:12px}
+.flow{display:flex;flex-direction:column;gap:6px}
+.flow .fl{font:500 .72rem/1 var(--mono);letter-spacing:.06em;color:var(--muted)}
+.steps{display:flex;flex-wrap:wrap;align-items:center;gap:5px}
+.steps span{font:500 .74rem/1 var(--mono);padding:7px 9px;border-radius:6px;border:1px solid var(--line);background:var(--surface-2)}
+.steps i{font-style:normal;color:var(--muted);font-size:.8rem}
+.flow.p2p .steps span{border-color:var(--tx);color:var(--tx)}
+.flow.mrp .steps span{border-color:var(--ia);color:var(--ia)}
+.flow.o2c .steps span{border-color:var(--po);color:var(--po)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.metric{padding:12px;border-radius:8px;background:var(--surface-2);display:flex;flex-direction:column;gap:4px}
+.metric b{font-family:var(--display);font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}
+.metric span{font-size:.75rem;color:var(--muted);line-height:1.3}
+.d-foot{padding:12px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font:400 var(--s-xs)/1.3 var(--mono);color:var(--muted)}
+@media (max-width:420px){.metrics{grid-template-columns:1fr 1fr}}
+
+/* Parcours */
+.bg-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.panel{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:18px}
+.panel h3{font-size:1.1rem;font-weight:700}
+.edu{display:flex;flex-direction:column;gap:16px}
+.edu li{display:grid;grid-template-columns:96px 1fr;gap:14px}
+.edu .yr{font:400 var(--s-xs)/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.edu b{display:block;font-weight:600}
+.d-muted{color:var(--muted);font-size:var(--s-sm)}
+.stack{display:flex;flex-direction:column;gap:20px}
+.kv{display:flex;flex-direction:column;gap:8px;font-size:var(--s-sm)}
+.kv li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.kv li:last-child{border-bottom:0;padding-bottom:0}
+.kv .v{color:var(--muted);text-align:right}
+@media (max-width:860px){.bg-grid{grid-template-columns:1fr}}
+
+/* Contact */
+.contact .wrap{padding-block:clamp(64px,9vw,110px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.03em}
+.contact .intro{display:flex;flex-direction:column;gap:16px;min-width:0}
+.contact .intro p{color:var(--muted);max-width:46ch}
+.lines{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);min-width:0}
+.line{display:grid;grid-template-columns:96px 1fr auto;gap:12px;align-items:center;padding:16px 18px;border-top:1px solid var(--line)}
+.line:first-child{border-top:0}
+.line .k{font:500 var(--s-xs)/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.line .val{min-width:0;overflow-wrap:anywhere;font-weight:500;user-select:all}
+.line a.val{text-decoration:none;user-select:auto}
+.line a.val:hover{text-decoration:underline}
+.copy{font:500 .74rem/1 var(--mono);padding:8px 10px;border-radius:6px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);cursor:pointer;min-width:78px;text-align:center;text-decoration:none}
+.copy.ok{border-color:var(--tx);color:var(--tx)}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+@media (max-width:460px){.line{grid-template-columns:1fr auto}.line .k{grid-column:1 / -1}}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font:400 var(--s-xs)/1.4 var(--mono);color:var(--muted)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top"><span class="mono-badge" aria-hidden="true">AE</span><span>Anas El Belhadji</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#profil" data-sec="profil"><span data-l="fr">Profil</span><span data-l="en">Profile</span></a>
+      <a href="#experiences" data-sec="experiences"><span data-l="fr">Expériences</span><span data-l="en">Experience</span></a>
+      <a href="#projets" data-sec="projets"><span data-l="fr">Projets</span><span data-l="en">Projects</span></a>
+      <a href="#parcours" data-sec="parcours"><span data-l="fr">Parcours</span><span data-l="en">Background</span></a>
+      <a href="#contact" data-sec="contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" id="lang-fr" data-set="fr" aria-pressed="true">FR</button>
+      <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="eyebrow"><span data-l="fr">Étudiant ingénieur · IMT Nord Europe</span><span data-l="en">Engineering student · IMT Nord Europe</span></p>
+        <h1>Anas El Belhadji</h1>
+        <p class="roles"><span class="po">Product Owner</span><span class="x">×</span><span class="tx"><span data-l="fr">Transformation digitale</span><span data-l="en">Digital Transformation</span></span></p>
+        <p class="lead">
+          <span data-l="fr">Je fais le lien entre les besoins des utilisateurs et les outils qui les servent. Je construis des backlogs, je modélise les processus métier et j'intègre l'IA là où elle fait vraiment gagner du temps.</span>
+          <span data-l="en">I connect what users need with the tools that serve them. I build backlogs, model business processes and bring AI in where it genuinely saves time.</span>
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projets"><span data-l="fr">Voir les projets</span><span data-l="en">See projects</span> ↓</a>
+          <a class="btn" href="#contact"><span data-l="fr">Me contacter</span><span data-l="en">Get in touch</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/anas-el-belhadji/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+        <div class="facts">
+          <span><i class="dot" aria-hidden="true"></i><span data-l="fr">Disponible dès février 2027 · 6 mois</span><span data-l="en">Available from February 2027 · 6 months</span></span>
+          <span>Lille, France</span>
+        </div>
+      </div>
+
+      <article class="story" id="story" aria-label="User story">
+        <div class="story-head">
+          <span>AEB-2027</span>
+          <span class="type">· User story</span>
+          <span class="pill"><span data-l="fr">Prêt pour le sprint</span><span data-l="en">Ready for sprint</span></span>
+        </div>
+        <div class="story-body">
+          <p class="story-text" data-l="fr"><span class="kw">En tant que</span>recruteur, <span class="kw">je veux</span>un stagiaire qui parle à la fois le langage du <b>produit</b> et celui de la <b>transformation digitale</b>, <span class="kw">afin de</span>livrer des outils que les équipes adoptent vraiment.</p>
+          <p class="story-text" data-l="en"><span class="kw">As a</span>recruiter, <span class="kw">I want</span>an intern who speaks both the language of <b>product</b> and the language of <b>digital transformation</b>, <span class="kw">so that</span>we ship tools teams actually adopt.</p>
+          <p class="ac-title"><span data-l="fr">Critères d'acceptation · cliquez pour la preuve</span><span data-l="en">Acceptance criteria · click for proof</span></p>
+          <ul class="ac">
+            <li><a href="#experiences"><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.3 4.8 9 10 3"/></svg></span>
+              <span><span data-l="fr">Expérience de Product Owner en startup : roadmap, backlog, user stories</span><span data-l="en">Product Owner experience in a startup: roadmap, backlog, user stories</span></span><span class="go"><span data-l="fr">preuve</span><span data-l="en">proof</span> →</span></a></li>
+            <li><a href="#projets"><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.3 4.8 9 10 3"/></svg></span>
+              <span><span data-l="fr">Projets ERP, BPMN et automatisation IA menés de bout en bout</span><span data-l="en">ERP, BPMN and AI automation projects delivered end to end</span></span><span class="go"><span data-l="fr">preuve</span><span data-l="en">proof</span> →</span></a></li>
+            <li><a href="#contact"><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.3 4.8 9 10 3"/></svg></span>
+              <span><span data-l="fr">Stage de fin d'études de 6 mois, disponible dès février 2027</span><span data-l="en">6-month end-of-studies internship, available from February 2027</span></span><span class="go">contact →</span></a></li>
+          </ul>
+        </div>
+        <div class="story-foot">
+          <span><span data-l="fr">Assigné à</span><span data-l="en">Assignee</span> : <b>Anas</b></span>
+          <span><span data-l="fr">Estimation</span><span data-l="en">Estimate</span> : <b><span data-l="fr">6 mois</span><span data-l="en">6 months</span></b></span>
+          <span>Sprint 1 : <b><span data-l="fr">fév. 2027</span><span data-l="en">Feb 2027</span></b></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROFIL / DEUX MÉTIERS -->
+  <section class="block" id="profil">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-l="fr">Profil</span><span data-l="en">Profile</span></p>
+        <h2><span data-l="fr">Deux métiers, un seul fil conducteur</span><span data-l="en">Two roles, one common thread</span></h2>
+      </div>
+      <p class="profile-text" data-l="fr">Étudiant ingénieur en AMOA et en IA et Transformation Digitale, orienté Product Owner. Je pilote des backlogs Agile, j'écris des user stories et je fais le lien entre les utilisateurs et l'équipe technique. Côté transformation, je modélise les processus en BPMN, je paramètre des ERP et j'intègre l'IA dans les workflows avec n8n et des agents IA. J'aime transformer les besoins des utilisateurs en produits et en processus clairs, efficaces et faciles à adopter.</p>
+      <p class="profile-text" data-l="en">Engineering student specialised in business analysis (AMOA), AI and digital transformation, focused on Product Ownership. I run Agile backlogs, write user stories and act as the link between users and the technical team. On the transformation side, I model processes in BPMN, configure ERPs and build AI into workflows with n8n and AI agents. I enjoy turning user needs into products and processes that are clear, efficient and easy to adopt.</p>
+
+      <div class="venn">
+        <svg viewBox="0 0 600 250" id="venn">
+          <defs><clipPath id="clipL"><circle cx="230" cy="125" r="110"/></clipPath></defs>
+          <circle class="zone" data-zone="po" tabindex="0" role="button" aria-label="Product Owner" cx="230" cy="125" r="110" fill="var(--po-soft)" stroke="var(--po)" stroke-width="1.5"/>
+          <circle class="zone" data-zone="tx" tabindex="0" role="button" aria-label="Transformation digitale" cx="370" cy="125" r="110" fill="var(--tx-soft)" stroke="var(--tx)" stroke-width="1.5"/>
+          <circle class="zone" data-zone="mid" tabindex="0" role="button" aria-label="Point de rencontre" cx="370" cy="125" r="110" clip-path="url(#clipL)" fill="var(--surface-2)" stroke="var(--fg)" stroke-width="0"/>
+          <text class="lbl" x="175" y="121" text-anchor="middle">Product</text>
+          <text class="lbl" x="175" y="145" text-anchor="middle">Owner</text>
+          <g data-l="fr"><text class="lbl" x="425" y="121" text-anchor="middle">Transformation</text><text class="lbl" x="425" y="145" text-anchor="middle">digitale</text></g>
+          <g data-l="en"><text class="lbl" x="425" y="121" text-anchor="middle">Digital</text><text class="lbl" x="425" y="145" text-anchor="middle">transformation</text></g>
+          <text class="lbl" x="300" y="122" text-anchor="middle">Anas</text>
+          <text class="sub" x="300" y="142" text-anchor="middle" data-l="fr">BESOIN → OUTIL</text>
+          <text class="sub" x="300" y="142" text-anchor="middle" data-l="en">NEED → TOOL</text>
+        </svg>
+        <p class="hint"><span data-l="fr">Cliquez sur une zone du schéma</span><span data-l="en">Click a zone of the diagram</span></p>
+      </div>
+
+      <div class="lanes" id="lanes">
+        <div class="lane-col po">
+          <p class="who">Product Owner</p>
+          <h3><span data-l="fr">Comprendre et prioriser</span><span data-l="en">Understand and prioritise</span></h3>
+          <p><span data-l="fr">Je traduis le besoin en backlog que l'équipe peut livrer.</span><span data-l="en">I turn needs into a backlog the team can deliver.</span></p>
+          <ul>
+            <li><span data-l="fr">Vision produit et roadmap</span><span data-l="en">Product vision and roadmap</span></li>
+            <li><span data-l="fr">Product backlog et priorisation</span><span data-l="en">Product backlog and prioritisation</span></li>
+            <li><span data-l="fr">User stories et critères d'acceptation</span><span data-l="en">User stories and acceptance criteria</span></li>
+            <li><span data-l="fr">Scrum et suivi de l'avancement</span><span data-l="en">Scrum and progress tracking</span></li>
+            <li><span data-l="fr">Échanges directs avec les utilisateurs</span><span data-l="en">Direct contact with users</span></li>
+          </ul>
+          <button type="button" class="lane-link" data-goto="po"><span data-l="fr">Voir les projets Produit</span><span data-l="en">See Product projects</span> →</button>
+        </div>
+        <div class="lane-col mid">
+          <p class="who"><span data-l="fr">Le point de rencontre</span><span data-l="en">Where they meet</span></p>
+          <h3><span data-l="fr">Là où je suis le plus utile</span><span data-l="en">Where I add the most</span></h3>
+          <p><span data-l="fr">Un besoin bien formalisé, un outil bien choisi, des équipes qui l'utilisent.</span><span data-l="en">A well-defined need, the right tool, and teams that actually use it.</span></p>
+          <ul>
+            <li><span data-l="fr">Recueil et formalisation des besoins (cahier des charges)</span><span data-l="en">Requirements gathering and specification</span></li>
+            <li><span data-l="fr">Choix et paramétrage de l'outil (benchmark ERP)</span><span data-l="en">Tool selection and configuration (ERP benchmark)</span></li>
+            <li><span data-l="fr">Accompagnement au changement : onboarding, formation, vidéos de démo</span><span data-l="en">Change support: onboarding, training, demo videos</span></li>
+          </ul>
+          <button type="button" class="lane-link" data-open="PRJ-02"><span data-l="fr">Exemple : le projet ERP Odoo</span><span data-l="en">Example: the Odoo ERP project</span> →</button>
+        </div>
+        <div class="lane-col tx">
+          <p class="who"><span data-l="fr">Transformation digitale</span><span data-l="en">Digital transformation</span></p>
+          <h3><span data-l="fr">Repenser et outiller</span><span data-l="en">Redesign and equip</span></h3>
+          <p><span data-l="fr">Je modélise le processus, puis je choisis et configure l'outil.</span><span data-l="en">I model the process, then choose and configure the tool.</span></p>
+          <ul>
+            <li><span data-l="fr">Modélisation BPMN des processus</span><span data-l="en">BPMN process modelling</span></li>
+            <li><span data-l="fr">ERP Odoo : cycles Order-to-Cash et Procure-to-Pay</span><span data-l="en">Odoo ERP: Order-to-Cash and Procure-to-Pay</span></li>
+            <li>SAP Fiori (ABAP RAP, OData)</li>
+            <li><span data-l="fr">Automatisation IA avec n8n et agents IA</span><span data-l="en">AI automation with n8n and AI agents</span></li>
+            <li><span data-l="fr">Reporting Power BI et migration de données</span><span data-l="en">Power BI reporting and data migration</span></li>
+          </ul>
+          <button type="button" class="lane-link" data-goto="tx"><span data-l="fr">Voir les projets Transformation</span><span data-l="en">See Transformation projects</span> →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPÉRIENCES -->
+  <section class="block" id="experiences">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-l="fr">Expériences</span><span data-l="en">Experience</span></p>
+        <h2><span data-l="fr">Sur le terrain</span><span data-l="en">In the field</span></h2>
+      </div>
+      <div class="timeline">
+        <article class="job">
+          <div class="job-when">
+            <span><span data-l="fr">mai – août 2026</span><span data-l="en">May – Aug 2026</span></span>
+            <span>Paris · PropTech</span>
+            <span class="tag po">Product Owner</span>
+          </div>
+          <div class="job-main">
+            <div>
+              <h3><span data-l="fr">Product Owner (stage)</span><span data-l="en">Product Owner Intern</span></h3>
+              <p class="org">DATALIA · <span data-l="fr">plateforme immobilière KILICASA</span><span data-l="en">KILICASA real-estate platform</span></p>
+            </div>
+            <ul class="points">
+              <li data-l="fr"><b>Pilotage du produit de bout en bout.</b> Responsable de la roadmap et du product backlog, j'ai rédigé l'ensemble des tickets (user stories, critères d'acceptation) pour l'équipe de développement et suivi l'avancement du produit.</li>
+              <li data-l="en"><b>End-to-end product ownership.</b> Owned the roadmap and product backlog, wrote every ticket (user stories, acceptance criteria) for the development team and tracked product progress.</li>
+              <li data-l="fr"><b>Lien direct avec les utilisateurs.</b> Recueil des besoins auprès des utilisateurs de la plateforme, puis priorisation dans le backlog pour livrer d'abord ce qui compte pour eux.</li>
+              <li data-l="en"><b>Direct link with users.</b> Gathered needs from platform users and prioritised them in the backlog so the most valuable items shipped first.</li>
+              <li data-l="fr"><b>Onboarding des nouveaux stagiaires.</b> Vidéo de démonstration de la plateforme, accompagnement sur les premières tâches et répartition des tickets.</li>
+              <li data-l="en"><b>Onboarding new interns.</b> Recorded a platform demo video, guided newcomers through their first tasks and assigned tickets.</li>
+            </ul>
+            <ul class="chips"><li>Scrum</li><li>Roadmap</li><li>Product backlog</li><li>User stories</li><li>GitHub Projects</li><li>Excel</li></ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-when">
+            <span><span data-l="fr">juin – sept. 2025</span><span data-l="en">Jun – Sep 2025</span></span>
+            <span><span data-l="fr">Fès, Maroc</span><span data-l="en">Fez, Morocco</span></span>
+            <span class="tag tx"><span data-l="fr">Transformation & IA</span><span data-l="en">Transformation & AI</span></span>
+          </div>
+          <div class="job-main">
+            <div>
+              <h3><span data-l="fr">Assistant chef de projet IA</span><span data-l="en">AI Project Manager Intern</span></h3>
+              <p class="org">MIM Digital Agency</p>
+            </div>
+            <ul class="points">
+              <li data-l="fr"><b>Automatisation des workflows avec n8n.</b> Conception de workflows IA et de chatbots qui répondent aux questions fréquentes des clients, pour libérer du temps aux équipes.</li>
+              <li data-l="en"><b>Workflow automation with n8n.</b> Designed AI workflows and chatbots answering frequent client questions, freeing up time for the team.</li>
+              <li data-l="fr"><b>Suivi des demandes clients.</b> Tableau Excel connecté à Power BI pour suivre le volume des demandes et les types de services demandés.</li>
+              <li data-l="en"><b>Client request tracking.</b> Built an Excel tracker connected to Power BI to follow request volume and the types of services requested.</li>
+              <li data-l="fr"><b>Formation des équipes.</b> Prise en main et configuration des workflows n8n, avec vidéos de démonstration et rapports.</li>
+              <li data-l="en"><b>Team training.</b> Trained staff to use and configure the n8n workflows, with demo videos and written reports.</li>
+            </ul>
+            <ul class="chips"><li>n8n</li><li><span data-l="fr">IA générative</span><span data-l="en">Generative AI</span></li><li>Chatbots</li><li>Power BI</li><li>Excel</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section class="block" id="projets">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-l="fr">Projets</span><span data-l="en">Projects</span></p>
+        <h2><span data-l="fr">Le backlog des projets</span><span data-l="en">The project backlog</span></h2>
+        <p><span data-l="fr">Projets d'école d'ingénieur, du plus récent au plus ancien. Filtrez par métier, puis ouvrez un ticket pour le détail.</span><span data-l="en">Engineering school projects, most recent first. Filter by role, then open a ticket for the details.</span></p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtre">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true"><span data-l="fr">Tous</span><span data-l="en">All</span> <span class="n" data-count="all"></span></button>
+        <button type="button" id="f-po" data-f="po" aria-pressed="false"><i class="sw" style="background:var(--po)"></i><span data-l="fr">Produit</span><span data-l="en">Product</span> <span class="n" data-count="po"></span></button>
+        <button type="button" id="f-tx" data-f="tx" aria-pressed="false"><i class="sw" style="background:var(--tx)"></i>Transformation <span class="n" data-count="tx"></span></button>
+        <button type="button" id="f-ia" data-f="ia" aria-pressed="false"><i class="sw" style="background:var(--ia)"></i><span data-l="fr">Data & IA</span><span data-l="en">Data & AI</span> <span class="n" data-count="ia"></span></button>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- PRJ-06 -->
+        <article class="ticket" data-id="PRJ-06" data-lanes="ia" tabindex="0" role="button">
+          <div class="t-top"><span>PRJ-06</span><span><span data-l="fr">oct. 2026</span><span data-l="en">Oct 2026</span></span></div>
+          <h3>Sketch-to-Clothes (Pix2Pix)</h3>
+          <p data-l="fr">Génération de vêtements à partir de croquis. Évaluation des résultats par SSIM, PSNR et un classifieur CNN indépendant de l'entraînement.</p>
+          <p data-l="en">Generating garments from sketches. Results evaluated with SSIM, PSNR and a CNN classifier kept independent from training.</p>
+          <ul class="chips"><li>Python</li><li>Pix2Pix</li><li>CNN</li><li>SSIM / PSNR</li></ul>
+          <div class="t-lanes"><span class="tag ia">Data & <span data-l="fr">IA</span><span data-l="en">AI</span></span><span class="more-btn"><span data-l="fr">Détail</span><span data-l="en">Details</span> <span class="arr">→</span></span></div>
+          <div class="more" hidden>
+            <div class="d-sec"><h4><span data-l="fr">Contexte</span><span data-l="en">Context</span></h4>
+              <p data-l="fr">Mini-projet de cours en IA générative : apprendre à un modèle à recréer un vêtement réaliste à partir d'un simple croquis.</p>
+              <p data-l="en">Course mini-project in generative AI: teaching a model to rebuild a realistic garment from a simple sketch.</p></div>
+            <div class="d-sec"><h4><span data-l="fr">Démarche</span><span data-l="en">Approach</span></h4>
+              <div class="flow"><div class="steps"><span><span data-l="fr">Photos de vêtements</span><span data-l="en">Garment photos</span></span><i>→</i><span><span data-l="fr">Contours Canny</span><span data-l="en">Canny edges</span></span><i>→</i><span><span data-l="fr">Entraînement Pix2Pix</span><span data-l="en">Pix2Pix training</span></span><i>→</i><span><span data-l="fr">Évaluation</span><span data-l="en">Evaluation</span></span></div></div></div>
+            <div class="d-sec"><h4><span data-l="fr">Évaluation</span><span data-l="en">Evaluation</span></h4>
+              <ul class="list">
+                <li data-l="fr"><b>SSIM et PSNR</b> pour mesurer la fidélité de l'image générée par rapport à la photo réelle.</li>
+                <li data-l="en"><b>SSIM and PSNR</b> to measure how close the generated image is to the real photo.</li>
+                <li data-l="fr"><b>Classifieur CNN indépendant</b> de l'entraînement, utilisé uniquement pour juger la qualité des résultats.</li>
+                <li data-l="en"><b>An independent CNN classifier</b>, not involved in training, used only to judge result quality.</li>
+              </ul></div>
+            <div class="d-sec"><h4><span data-l="fr">Ce que ça montre</span><span data-l="en">What it shows</span></h4>
+              <p data-l="fr">Savoir évaluer un modèle d'IA avec des critères objectifs, et pas seulement à l'œil : une compétence utile pour cadrer un projet IA côté produit.</p>
+              <p data-l="en">Evaluating an AI model with objective criteria rather than by eye: a useful skill when scoping an AI project from the product side.</p></div>
+          </div>
+        </article>
+
+        <!-- PRJ-05 -->
+        <article class="ticket" data-id="PRJ-05" data-lanes="tx ia" tabindex="0" role="button">
+          <div class="t-top"><span>PRJ-05</span><span><span data-l="fr">mai 2026</span><span data-l="en">May 2026</span></span></div>
+          <h3><span data-l="fr">Migration SQL Server vers PostgreSQL</span><span data-l="en">SQL Server to PostgreSQL migration</span></h3>
+          <p data-l="fr">Migration exécutée avec des jobs ETL Talend, contrôle des doublons et des données erronées, puis comparaison source / cible en SQL.</p>
+          <p data-l="en">Migration run with Talend ETL jobs, checks for duplicates and bad data, then source / target comparison in SQL.</p>
+          <ul class="chips"><li>Talend</li><li>ETL</li><li>SQL Server</li><li>PostgreSQL</li></ul>
+          <div class="t-lanes"><span class="tag tx">Transformation</span><span class="tag ia">Data & <span data-l="fr">IA</span><span data-l="en">AI</span></span><span class="more-btn"><span data-l="fr">Détail</span><span data-l="en">Details</span> <span class="arr">→</span></span></div>
+          <div class="more" hidden>
+            <div class="d-sec"><h4><span data-l="fr">Contexte</span><span data-l="en">Context</span></h4>
+              <p data-l="fr">Projet individuel : migrer une base SQL Server vers PostgreSQL sans perte ni doublon, comme lors d'un changement de système d'information.</p>
+              <p data-l="en">Solo project: migrating a SQL Server database to PostgreSQL with no loss and no duplicates, as in an information-system change.</p></div>
+            <div class="d-sec"><h4><span data-l="fr">Pipeline ETL</span><span data-l="en">ETL pipeline</span></h4>
+              <div class="flow"><div class="steps"><span>SQL Server</span><i>→</i><span>tDBInput</span><i>→</i><span>tMap</span><i>→</i><span>tDBOutput</span><i>→</i><span>PostgreSQL</span></div></div></div>
+            <div class="d-sec"><h4><span data-l="fr">Ce que j'ai fait</span><span data-l="en">What I did</span></h4>
+              <ul class="list">
+                <li data-l="fr"><b>Préparation.</b> Création des tables source et cible, connexions Talend aux deux bases.</li>
+                <li data-l="en"><b>Setup.</b> Created source and target tables, connected Talend to both databases.</li>
+                <li data-l="fr"><b>Transformation.</b> Mapping et adaptation des types, clés primaires et étrangères, optimisation des index.</li>
+                <li data-l="en"><b>Transformation.</b> Type mapping and conversion, primary and foreign keys, index optimisation.</li>
+                <li data-l="fr"><b>Qualité.</b> Gestion des erreurs, vérification des doublons et comparaison source / cible par requêtes SQL.</li>
+                <li data-l="en"><b>Quality.</b> Error handling, duplicate checks and source / target comparison with SQL queries.</li>
+              </ul></div>
+            <div class="d-sec"><h4><span data-l="fr">Livrables</span><span data-l="en">Deliverables</span></h4>
+              <p data-l="fr">Rapport de projet complet et liste de cas de test, dont le traitement des données erronées.</p>
+              <p data-l="en">Full project report and a set of test cases, including how bad data is handled.</p></div>
+          </div>
+        </article>
+
+        <!-- PRJ-04 -->
+        <article class="ticket" data-id="PRJ-04" data-lanes="tx" tabindex="0" role="button">
+          <div class="t-top"><span>PRJ-04</span><span><span data-l="fr">avr. 2026</span><span data-l="en">Apr 2026</span></span></div>
+          <h3><span data-l="fr">Modélisation BPMN avec Bonita Studio</span><span data-l="en">BPMN modelling with Bonita Studio</span></h3>
+          <p data-l="fr">Modélisation de processus métier en BPMN et mise en œuvre dans Bonita Studio, avec appel de services dans une logique SOA.</p>
+          <p data-l="en">Business processes modelled in BPMN and implemented in Bonita Studio, calling services in an SOA approach.</p>
+          <ul class="chips"><li>BPMN 2.0</li><li>Bonita Studio</li><li>SOA</li></ul>
+          <div class="t-lanes"><span class="tag tx">Transformation</span><span class="more-btn"><span data-l="fr">Détail</span><span data-l="en">Details</span> <span class="arr">→</span></span></div>
+          <div class="more" hidden>
+            <div class="d-sec"><h4><span data-l="fr">Contexte</span><span data-l="en">Context</span></h4>
+              <p data-l="fr">Passer d'un processus métier décrit sur papier à un processus modélisé et exécutable.</p>
+              <p data-l="en">Moving from a business process described on paper to one that is modelled and executable.</p></div>
+            <div class="d-sec"><h4><span data-l="fr">Démarche</span><span data-l="en">Approach</span></h4>
+              <div class="flow"><div class="steps"><span><span data-l="fr">Processus métier</span><span data-l="en">Business process</span></span><i>→</i><span><span data-l="fr">Modèle BPMN</span><span data-l="en">BPMN model</span></span><i>→</i><span>Bonita Studio</span><i>→</i><span><span data-l="fr">Services (SOA)</span><span data-l="en">Services (SOA)</span></span></div></div></div>
+            <div class="d-sec"><h4><span data-l="fr">Ce que ça montre</span><span data-l="en">What it shows</span></h4>
+              <p data-l="fr">Formaliser un processus de façon que métier et équipe technique le lisent de la même manière : la base de toute transformation digitale.</p>
+              <p data-l="en">Formalising a process so business and technical teams read it the same way: the foundation of any digital transformation.</p></div>
+          </div>
+        </article>
+
+        <!-- PRJ-03 -->
+        <article class="ticket" data-id="PRJ-03" data-lanes="tx" tabindex="0" role="button">
+          <div class="t-top"><span>PRJ-03</span><span><span data-l="fr">mars 2026</span><span data-l="en">Mar 2026</span></span></div>
+          <h3><span data-l="fr">Application SAP Fiori : gestion de bibliothèque</span><span data-l="en">SAP Fiori app: library management</span></h3>
+          <p data-l="fr">Application Fiori de gestion des livres d'une bibliothèque, connectée à un service OData et construite avec le framework RAP.</p>
+          <p data-l="en">Fiori app for managing a library's books, connected to an OData service and built with the RAP framework.</p>
+          <ul class="chips"><li>ABAP RAP</li><li>OData V4</li><li>SAP BTP</li><li>Fiori Elements</li></ul>
+          <div class="t-lanes"><span class="tag tx">Transformation</span><span class="more-btn"><span data-l="fr">Détail</span><span data-l="en">Details</span> <span class="arr">→</span></span></div>
+          <div class="more" hidden>
+            <div class="d-sec"><h4><span data-l="fr">Contexte</span><span data-l="en">Context</span></h4>
+              <p data-l="fr">Construire une application métier dans l'écosystème SAP : la gestion des livres d'une bibliothèque.</p>
+              <p data-l="en">Building a business app in the SAP ecosystem: managing a library's books.</p></div>
+            <div class="d-sec"><h4><span data-l="fr">Architecture</span><span data-l="en">Architecture</span></h4>
+              <div class="flow"><div class="steps"><span><span data-l="fr">Entités</span><span data-l="en">Entities</span></span><i>→</i><span><span data-l="fr">Comportements RAP</span><span data-l="en">RAP behaviours</span></span><i>→</i><span>OData V4</span><i>→</i><span>Fiori Elements</span></div></div></div>
+            <div class="d-sec"><h4><span data-l="fr">Ce que j'ai fait</span><span data-l="en">What I did</span></h4>
+              <ul class="list">
+                <li data-l="fr"><b>Modèle de données.</b> Conception des entités et de leurs comportements avec le framework ABAP RAP.</li>
+                <li data-l="en"><b>Data model.</b> Designed the entities and their behaviours with the ABAP RAP framework.</li>
+                <li data-l="fr"><b>Service et interface.</b> Exposition via un service OData V4 sur SAP BTP et interface générée avec Fiori Elements.</li>
+                <li data-l="en"><b>Service and UI.</b> Exposed through an OData V4 service on SAP BTP, with a Fiori Elements UI.</li>
+              </ul></div>
+          </div>
+        </article>
+
+        <!-- PRJ-02 -->
+        <article class="ticket" data-id="PRJ-02" data-lanes="po tx" tabindex="0" role="button">
+          <div class="t-top"><span>PRJ-02</span><span><span data-l="fr">févr. 2026</span><span data-l="en">Feb 2026</span></span></div>
+          <h3><span data-l="fr">ERP Odoo 19 pour une PME industrielle</span><span data-l="en">Odoo 19 ERP for an industrial SME</span></h3>
+          <p data-l="fr">Fabricant fictif de bornes de recharge : cycles Order-to-Cash (O2C) et Procure-to-Pay (P2P), production et comptabilité, pilotés en 4 sprints Scrum.</p>
+          <p data-l="en">Fictional EV-charger manufacturer: Order-to-Cash (O2C) and Procure-to-Pay (P2P) cycles, production and accounting, delivered over 4 Scrum sprints.</p>
+          <ul class="chips"><li>Odoo 19</li><li>O2C / P2P</li><li>MRP</li><li>Jira</li><li>PostgreSQL</li><li>Power BI</li></ul>
+          <div class="t-lanes"><span class="tag po"><span data-l="fr">Produit</span><span data-l="en">Product</span></span><span class="tag tx">Transformation</span><span class="more-btn"><span data-l="fr">Détail</span><span data-l="en">Details</span> <span class="arr">→</span></span></div>
+          <div class="more" hidden>
+            <div class="metrics">
+              <div class="metric"><b>11</b><span data-l="fr">user stories sur Jira</span><span data-l="en">user stories in Jira</span></div>
+              <div class="metric"><b>4</b><span data-l="fr">sprints Scrum terminés</span><span data-l="en">Scrum sprints completed</span></div>
+              <div class="metric"><b>100</b><span data-l="fr">bornes en ordre de fabrication</span><span data-l="en">units in the manufacturing order</span></div>
+            </div>
+            <div class="d-sec"><h4><span data-l="fr">Contexte</span><span data-l="en">Context</span></h4>
+              <p data-l="fr">Projet individuel : mettre en place l'ERP d'une PME fictive qui fabrique des bornes de recharge pour véhicules électriques, du cahier des charges au reporting.</p>
+              <p data-l="en">Solo project: rolling out the ERP of a fictional SME manufacturing EV charging stations, from requirements to reporting.</p></div>
+            <div class="d-sec"><h4><span data-l="fr">Les flux paramétrés</span><span data-l="en">Configured flows</span></h4>
+              <div class="flows">
+                <div class="flow p2p"><span class="fl">PROCURE-TO-PAY</span><div class="steps"><span><span data-l="fr">Fournisseur</span><span data-l="en">Supplier</span></span><i>→</i><span><span data-l="fr">Commande</span><span data-l="en">Purchase order</span></span><i>→</i><span><span data-l="fr">Réception</span><span data-l="en">Receipt</span></span><i>→</i><span><span data-l="fr">Facture</span><span data-l="en">Bill</span></span><i>→</i><span><span data-l="fr">Paiement</span><span data-l="en">Payment</span></span></div></div>
+                <div class="flow mrp"><span class="fl"><span data-l="fr">PRODUCTION (MRP)</span><span data-l="en">MANUFACTURING (MRP)</span></span><div class="steps"><span><span data-l="fr">Nomenclature</span><span data-l="en">Bill of materials</span></span><i>→</i><span><span data-l="fr">Opérations</span><span data-l="en">Operations</span></span><i>→</i><span><span data-l="fr">Centres de travail</span><span data-l="en">Work centres</span></span><i>→</i><span><span data-l="fr">OF de 100 bornes</span><span data-l="en">MO for 100 units</span></span></div></div>
+                <div class="flow o2c"><span class="fl">ORDER-TO-CASH</span><div class="steps"><span><span data-l="fr">Vente de 90 bornes</span><span data-l="en">Sale of 90 units</span></span><i>→</i><span><span data-l="fr">Livraison</span><span data-l="en">Delivery</span></span><i>→</i><span><span data-l="fr">Facture</span><span data-l="en">Invoice</span></span><i>→</i><span><span data-l="fr">Encaissement</span><span data-l="en">Payment received</span></span></div></div>
+              </div></div>
+            <div class="d-sec"><h4><span data-l="fr">Ce que j'ai fait</span><span data-l="en">What I did</span></h4>
+              <ul class="list">
+                <li data-l="fr"><b>Côté produit.</b> Cahier des charges, product backlog et 11 user stories sur Jira, livrés en 4 sprints Scrum.</li>
+                <li data-l="en"><b>Product side.</b> Requirements spec, product backlog and 11 user stories in Jira, delivered over 4 Scrum sprints.</li>
+                <li data-l="fr"><b>Choix de l'outil.</b> Benchmark face à SAP S/4HANA, Microsoft Dynamics 365 et Sage X3.</li>
+                <li data-l="en"><b>Tool selection.</b> Benchmark against SAP S/4HANA, Microsoft Dynamics 365 and Sage X3.</li>
+                <li data-l="fr"><b>Paramétrage.</b> Comptabilité (comptes, journaux, taxes au contexte marocain), achats, stocks, production et ventes.</li>
+                <li data-l="en"><b>Configuration.</b> Accounting (accounts, journals, Moroccan taxes), purchasing, inventory, manufacturing and sales.</li>
+                <li data-l="fr"><b>Technique et reporting.</b> Déploiement sur Debian 12 avec PostgreSQL ; module Python de calcul du chiffre d'affaires, visualisé dans Power BI via ODBC.</li>
+                <li data-l="en"><b>Tech and reporting.</b> Deployed on Debian 12 with PostgreSQL; a Python module computing revenue, visualised in Power BI over ODBC.</li>
+              </ul></div>
+          </div>
+        </article>
+
+        <!-- PRJ-01 -->
+        <article class="ticket" data-id="PRJ-01" data-lanes="po ia" tabindex="0" role="button">
+          <div class="t-top"><span>PRJ-01</span><span><span data-l="fr">janv. 2026</span><span data-l="en">Jan 2026</span></span></div>
+          <h3>Automotive Intelligence Platform</h3>
+          <p data-l="fr">Plateforme d'analyse du marché automobile marocain : chatbot IA en architecture RAG et module BI avec 18 mesures DAX.</p>
+          <p data-l="en">Analytics platform for the Moroccan car market: a RAG-based AI chatbot and a BI module with 18 DAX measures.</p>
+          <ul class="chips"><li>RAG</li><li>Power BI</li><li>DAX</li><li><span data-l="fr">Cahier des charges</span><span data-l="en">Specification</span></li></ul>
+          <div class="t-lanes"><span class="tag po"><span data-l="fr">Produit</span><span data-l="en">Product</span></span><span class="tag ia">Data & <span data-l="fr">IA</span><span data-l="en">AI</span></span><span class="more-btn"><span data-l="fr">Détail</span><span data-l="en">Details</span> <span class="arr">→</span></span></div>
+          <div class="more" hidden>
+            <div class="metrics">
+              <div class="metric"><b>18</b><span data-l="fr">mesures DAX</span><span data-l="en">DAX measures</span></div>
+              <div class="metric"><b>RAG</b><span data-l="fr">chatbot qui cite ses sources</span><span data-l="en">chatbot citing its sources</span></div>
+              <div class="metric"><b>★</b><span data-l="fr">schéma en étoile</span><span data-l="en">star schema</span></div>
+            </div>
+            <div class="d-sec"><h4><span data-l="fr">Contexte</span><span data-l="en">Context</span></h4>
+              <p data-l="fr">Concevoir une plateforme qui aide à comprendre le marché automobile marocain, en combinant une IA conversationnelle et un tableau de bord BI.</p>
+              <p data-l="en">Designing a platform that helps make sense of the Moroccan car market, combining conversational AI with a BI dashboard.</p></div>
+            <div class="d-sec"><h4><span data-l="fr">Ce que j'ai fait</span><span data-l="en">What I did</span></h4>
+              <ul class="list">
+                <li data-l="fr"><b>Cahier des charges.</b> Rédaction des besoins et du périmètre de la plateforme.</li>
+                <li data-l="en"><b>Specification.</b> Wrote the requirements and scope of the platform.</li>
+                <li data-l="fr"><b>Chatbot IA.</b> Architecture RAG qui répond en citant ses sources.</li>
+                <li data-l="en"><b>AI chatbot.</b> RAG architecture that answers while citing its sources.</li>
+                <li data-l="fr"><b>Module BI.</b> Schéma en étoile et 18 mesures DAX : immatriculations, ventes, parts de marché.</li>
+                <li data-l="en"><b>BI module.</b> Star schema and 18 DAX measures: registrations, sales, market share.</li>
+              </ul></div>
+          </div>
+        </article>
+      </div>
+
+      <p class="aside-note" data-l="fr"><b>Projet personnel.</b> Un agent IA construit avec Claude pour suivre ma dépense calorique et la fréquence de mes séances de musculation : un terrain d'essai pour prototyper rapidement avec l'IA générative.</p>
+      <p class="aside-note" data-l="en"><b>Side project.</b> An AI agent built with Claude to track my calorie expenditure and how often I train: a sandbox for fast prototyping with generative AI.</p>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="block" id="parcours">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-l="fr">Parcours</span><span data-l="en">Background</span></p>
+        <h2><span data-l="fr">Formation et engagement</span><span data-l="en">Education and involvement</span></h2>
+      </div>
+      <div class="bg-grid">
+        <div class="panel">
+          <h3><span data-l="fr">Formation</span><span data-l="en">Education</span></h3>
+          <ul class="edu">
+            <li><span class="yr">2026 – 2027</span><div><b>IMT Nord Europe, Lille</b><span class="d-muted"><span data-l="fr">Dernière année du cycle ingénieur (mobilité)</span><span data-l="en">Final year of the engineering degree (exchange)</span></span></div></li>
+            <li><span class="yr">2024 – 2027</span><div><b>INPT, Rabat</b><span class="d-muted"><span data-l="fr">Cycle ingénieur, Innovation et AMOA / Business Analysis</span><span data-l="en">Engineering degree, Innovation and Business Analysis</span></span></div></li>
+            <li><span class="yr">2022 – 2024</span><div><b>CPGE Lycée Moulay Idriss, Fès</b><span class="d-muted"><span data-l="fr">Classes préparatoires, filière PSI</span><span data-l="en">Preparatory classes, Physics & Engineering track (PSI)</span></span></div></li>
+          </ul>
+          <h3><span data-l="fr">Vie associative</span><span data-l="en">Student association</span></h3>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div><b><span data-l="fr">Trésorier</span><span data-l="en">Treasurer</span> · AEINPT</b><br><span class="d-muted">Forum GENI Entreprises & Olympiades INPT 2026</span></div>
+            <ul class="points">
+              <li data-l="fr"><b>Achats.</b> Appels d'offres auprès des prestataires et comparaison des offres (mieux-disant, moins-disant).</li>
+              <li data-l="en"><b>Procurement.</b> Ran calls for tenders with suppliers and compared bids on value and price.</li>
+              <li data-l="fr"><b>Partenaires et budget.</b> Négociation avec les entreprises partenaires du forum et suivi budgétaire.</li>
+              <li data-l="en"><b>Partners and budget.</b> Negotiated with partner companies attending the forum and tracked the budget.</li>
+              <li data-l="fr"><b>Coordination.</b> Accompagnement des équipes de bénévoles pendant les événements.</li>
+              <li data-l="en"><b>Coordination.</b> Guided the volunteer staff teams during the events.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="panel">
+            <h3><span data-l="fr">Certifications et langues</span><span data-l="en">Certifications and languages</span></h3>
+            <ul class="kv">
+              <li><span>BCG</span><span class="v">Forage</span></li>
+              <li><span>SkillFront</span><span class="v"><span data-l="fr">Certification</span><span data-l="en">Certificate</span></span></li>
+              <li><span><span data-l="fr">Anglais</span><span data-l="en">English</span></span><span class="v">TOEIC 885</span></li>
+              <li><span><span data-l="fr">Français</span><span data-l="en">French</span></span><span class="v"><span data-l="fr">Courant</span><span data-l="en">Fluent</span></span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3><span data-l="fr">Outils</span><span data-l="en">Tools</span></h3>
+            <ul class="chips"><li>Jira</li><li>GitHub Projects</li><li>Power BI</li><li>Excel / VBA</li><li>Python</li><li>n8n</li><li>Odoo</li><li>SAP Fiori</li><li>Bonita</li><li>Talend</li><li>SQL</li><li>Claude</li></ul>
+          </div>
+          <div class="panel">
+            <h3><span data-l="fr">En dehors du travail</span><span data-l="en">Outside work</span></h3>
+            <p class="d-muted"><span data-l="fr">Natation, musculation, ping-pong et observation des étoiles.</span><span data-l="en">Swimming, weight training, table tennis and stargazing.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">Contact</p>
+        <h2><span data-l="fr">Parlons de votre prochain sprint.</span><span data-l="en">Let's talk about your next sprint.</span></h2>
+        <p><span data-l="fr">Je cherche un stage de fin d'études de 6 mois en Product Owner ou en transformation digitale, à partir de février 2027. CV sur demande.</span><span data-l="en">I'm looking for a 6-month end-of-studies internship in Product Ownership or digital transformation, starting February 2027. CV available on request.</span></p>
+      </div>
+      <div class="lines">
+        <div class="line">
+          <span class="k">Email</span>
+          <span class="val" id="v-mail">elbelhadjianas2@gmail.com</span>
+          <button type="button" class="copy" id="c-mail" data-copy="v-mail"><span data-l="fr">Copier</span><span data-l="en">Copy</span></button>
+        </div>
+        <div class="line">
+          <span class="k"><span data-l="fr">Téléphone</span><span data-l="en">Phone</span></span>
+          <span class="val" id="v-tel">+33 7 59 04 84 07</span>
+          <button type="button" class="copy" id="c-tel" data-copy="v-tel"><span data-l="fr">Copier</span><span data-l="en">Copy</span></button>
+        </div>
+        <div class="line">
+          <span class="k">LinkedIn</span>
+          <a class="val" href="https://www.linkedin.com/in/anas-el-belhadji/" target="_blank" rel="noopener">in/anas-el-belhadji</a>
+          <a class="copy" href="https://www.linkedin.com/in/anas-el-belhadji/" target="_blank" rel="noopener"><span data-l="fr">Ouvrir</span><span data-l="en">Open</span> ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Anas El Belhadji</span>
+    <span>Lille · Rabat</span>
+  </div>
+</footer>
+
+<!-- Fiche projet -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="d-title" aria-hidden="true">
+  <div class="d-head">
+    <span id="d-id">PRJ</span><span>·</span><span id="d-date"></span>
+    <div class="ctrl">
+      <button type="button" class="icon-btn" id="d-prev" aria-label="Projet précédent">←</button>
+      <button type="button" class="icon-btn" id="d-next" aria-label="Projet suivant">→</button>
+      <button type="button" class="icon-btn" id="d-close" aria-label="Fermer">✕</button>
+    </div>
+  </div>
+  <div class="d-body" id="d-body">
+    <div class="d-title"><div class="t-lanes" id="d-lanes" style="border:0;padding:0"></div><h3 id="d-title"></h3><ul class="chips" id="d-chips"></ul></div>
+    <div id="d-more" style="display:flex;flex-direction:column;gap:24px"></div>
+  </div>
+  <div class="d-foot"><span id="d-count"></span><span><span data-l="fr">← → pour naviguer · Échap pour fermer</span><span data-l="en">← → to browse · Esc to close</span></span></div>
+</aside>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* ---------- Langue ---------- */
+  function setLang(l){
+    root.setAttribute('data-lang', l);
+    root.lang = l;
+    $$('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.set === l ? 'true' : 'false'); });
+    try { localStorage.setItem('ae-lang', l); } catch(e) {}
+  }
+  var start = 'fr';
+  try { var s = localStorage.getItem('ae-lang'); if (s === 'en' || s === 'fr') start = s; } catch(e) {}
+  if (location.hash === '#en') start = 'en';
+  if (location.hash === '#fr') start = 'fr';
+  setLang(start);
+  $$('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.set); }); });
+
+  /* ---------- Progression + section active ---------- */
+  var prog = $('#prog');
+  var navLinks = $$('.nav a[data-sec]');
+  var secs = navLinks.map(function(a){ return document.getElementById(a.dataset.sec); });
+  var ticking = false;
+  function onScroll(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      prog.style.transform = 'scaleX(' + p + ')';
+      var mid = window.innerHeight * 0.4, cur = null;
+      secs.forEach(function(sec){ if (sec && sec.getBoundingClientRect().top <= mid) cur = sec.id; });
+      navLinks.forEach(function(a){ a.classList.toggle('on', a.dataset.sec === cur); });
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Léger effet 3D sur la user story ---------- */
+  var story = $('#story');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    story.addEventListener('pointermove', function(e){
+      var r = story.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      story.style.transform = 'perspective(900px) rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg)';
+    });
+    story.addEventListener('pointerleave', function(){ story.style.transform = ''; });
+  }
+
+  /* ---------- Schéma interactif ---------- */
+  var venn = $('#venn'), lanes = $('#lanes');
+  function setFocus(z){
+    if (venn.dataset.focus === z) z = null;
+    if (z) { venn.dataset.focus = z; lanes.dataset.focus = z; }
+    else { delete venn.dataset.focus; delete lanes.dataset.focus; }
+  }
+  $$('.zone', venn).forEach(function(c){
+    c.addEventListener('click', function(){ setFocus(c.dataset.zone); });
+    c.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFocus(c.dataset.zone); } });
+  });
+
+  /* ---------- Filtre des projets ---------- */
+  var cards = $$('#grid .ticket');
+  $$('[data-count]').forEach(function(n){
+    var k = n.dataset.count;
+    n.textContent = cards.filter(function(c){ return k === 'all' || c.dataset.lanes.split(' ').indexOf(k) !== -1; }).length;
+  });
+  function applyFilter(f){
+    $$('.filters button').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.f === f ? 'true' : 'false'); });
+    cards.forEach(function(c){
+      var show = f === 'all' || c.dataset.lanes.split(' ').indexOf(f) !== -1;
+      var was = !c.hidden;
+      c.hidden = !show;
+      if (show && !was) { c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop'); }
+    });
+  }
+  $$('.filters button').forEach(function(b){ b.addEventListener('click', function(){ applyFilter(b.dataset.f); }); });
+  $$('.lane-link[data-goto]').forEach(function(b){
+    b.addEventListener('click', function(){
+      applyFilter(b.dataset.goto);
+      document.getElementById('projets').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+
+  /* ---------- Halo au survol des tickets ---------- */
+  cards.forEach(function(c){
+    c.addEventListener('pointermove', function(e){
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* ---------- Fiche projet ---------- */
+  var drawer = $('#drawer'), scrim = $('#scrim'), body = $('#d-body');
+  var current = -1, lastFocus = null;
+  function fill(i){
+    var c = cards[i];
+    current = i;
+    $('#d-id').textContent = c.dataset.id;
+    $('#d-date').innerHTML = $('.t-top span:last-child', c).innerHTML;
+    $('#d-title').innerHTML = $('h3', c).innerHTML;
+    $('#d-chips').innerHTML = $('.chips', c).innerHTML;
+    $('#d-lanes').innerHTML = $$('.t-lanes .tag', c).map(function(t){ return t.outerHTML; }).join('');
+    $('#d-more').innerHTML = $('.more', c).innerHTML;
+    $('#d-count').textContent = (i + 1) + ' / ' + cards.length;
+    body.scrollTop = 0;
+  }
+  function open(i){
+    lastFocus = document.activeElement;
+    fill(i);
+    drawer.classList.add('open'); scrim.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lock');
+    setTimeout(function(){ $('#d-close').focus(); }, 60);
+  }
+  function close(){
+    drawer.classList.remove('open'); scrim.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lock');
+    current = -1;
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function step(d){ if (current < 0) return; fill((current + d + cards.length) % cards.length); }
+  cards.forEach(function(c, i){
+    c.addEventListener('click', function(){ open(i); });
+    c.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } });
+  });
+  $$('[data-open]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var i = cards.findIndex(function(c){ return c.dataset.id === b.dataset.open; });
+      if (i >= 0) open(i);
+    });
+  });
+  $('#d-close').addEventListener('click', close);
+  $('#d-prev').addEventListener('click', function(){ step(-1); });
+  $('#d-next').addEventListener('click', function(){ step(1); });
+  scrim.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){
+    if (current < 0) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') step(1);
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'Tab') {
+      var f = $$('button, a[href]', drawer).filter(function(el){ return el.offsetParent !== null; });
+      if (!f.length) return;
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+
+  /* ---------- Copier email / téléphone ---------- */
+  $$('button.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.dataset.copy);
+      var text = el.textContent.trim();
+      var old = btn.innerHTML;
+      var done = function(){
+        btn.textContent = root.getAttribute('data-lang') === 'en' ? 'Copied ✓' : 'Copié ✓';
+        btn.classList.add('ok');
+        setTimeout(function(){ btn.innerHTML = old; btn.classList.remove('ok'); }, 1600);
+      };
+      var fallback = function(){
+        var r = document.createRange(); r.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
