@@ -309,7 +309,7 @@ section.block>.wrap{padding-block:clamp(56px,8vw,96px);display:flex;flex-directi
 .kc.with-logo{flex-direction:row;align-items:center;gap:10px}
 .kc.with-logo>div{display:flex;flex-direction:column;gap:6px;min-width:0}
 .kc-logo{flex-shrink:0;width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#FFFFFF;object-fit:cover}
-.proofs .plogo{width:22px;height:22px;border-radius:5px;vertical-align:-6px;margin-right:6px;border:1px solid var(--line);background:#FFFFFF;object-fit:cover}
+.plogo{width:22px;height:22px;border-radius:5px;vertical-align:-6px;margin-right:6px;border:1px solid var(--line);background:#FFFFFF;object-fit:cover}
 
 /* Bandeau personnalisé */
 .for{background:linear-gradient(90deg,var(--po-soft),var(--tx-soft));border-bottom:1px solid var(--line);animation:rise .5s ease-out}
@@ -468,6 +468,8 @@ section.block>.wrap{padding-block:clamp(56px,8vw,96px);display:flex;flex-directi
 .lb button{width:40px;height:40px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#ECEBE6;font:500 1rem/1 var(--mono);cursor:pointer}
 .lb button:hover{background:rgba(255,255,255,.14)}
 
+.xlink{color:var(--fg);text-underline-offset:4px}
+.xlink:hover{color:var(--tx)}
 footer{border-top:1px solid var(--line)}
 footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font:400 var(--s-xs)/1.4 var(--mono);color:var(--muted)}
 
@@ -647,6 +649,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
             <button type="button" id="pr-po" data-preset="po">Product Owner</button>
             <button type="button" id="pr-tx" data-preset="tx"><span data-l="fr">Transformation digitale</span><span data-l="en">Digital transformation</span></button>
             <button type="button" id="pr-ba" data-preset="ba">Business Analyst</button>
+            <button type="button" id="pr-bi" data-preset="bi">Business Intelligence</button>
             <button type="button" id="pr-pm" data-preset="pm"><span data-l="fr">Chef de projet</span><span data-l="en">Project manager</span></button>
             <button type="button" id="pr-erp" data-preset="erp"><span data-l="fr">ERP et déploiement</span><span data-l="en">ERP & roll-out</span></button>
             <button type="button" id="pr-clear" class="clear" data-preset="clear"><span data-l="fr">Effacer</span><span data-l="en">Clear</span></button>
@@ -1134,7 +1137,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Anas El Belhadji</span>
+    <span>© 2026 Anas El Belhadji · <a class="xlink" id="xlink" href="https://anas-el-belhadji.vercel.app/ba"><span data-l="fr">Voir aussi mon profil Business Analyst · BI</span><span data-l="en">See also my Business Analyst · BI profile</span> →</a></span>
     <span>Lille · <span data-l="fr">mobile partout en France</span><span data-l="en">open to relocation across France</span></span>
   </div>
 </footer>
@@ -1406,7 +1409,9 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
       ['genai', 'IA générative · RAG', 'Generative AI · RAG', ['PRJ-01', 'mim']],
       ['eval', 'Évaluation de modèles IA', 'AI model evaluation', ['PRJ-06']],
       ['sql', 'SQL · ETL', 'SQL · ETL', ['PRJ-05']],
-      ['data', 'Structuration des données', 'Data structuring', ['PRJ-05', 'PRJ-02', 'PRJ-01']] ] },
+      ['data', 'Structuration des données', 'Data structuring', ['PRJ-05', 'PRJ-02', 'PRJ-01']],
+      ['star', 'Modélisation en étoile', 'Star-schema modelling', ['PRJ-01']],
+      ['dax', 'Mesures DAX · KPI', 'DAX measures · KPIs', ['PRJ-01']] ] },
     { g: 'mg', fr: 'Gestion de projet', en: 'Project management', items: [
       ['budget', 'Budget et achats', 'Budget & procurement', ['aeinpt']],
       ['nego', 'Négociation', 'Negotiation', ['aeinpt']],
@@ -1415,7 +1420,8 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
   var PRESETS = {
     po: ['besoins', 'backlog', 'stories', 'accept', 'scrum', 'rituals', 'bugs', 'change'],
     tx: ['bpmn', 'erp', 'sap', 'n8n', 'migr', 'change'],
-    ba: ['besoins', 'stories', 'bpmn', 'erp', 'pbi', 'sql'],
+    ba: ['besoins', 'stories', 'accept', 'bpmn', 'data', 'sql', 'pbi', 'bugs'],
+    bi: ['besoins', 'data', 'sql', 'migr', 'star', 'dax', 'pbi'],
     pm: ['scrum', 'roadmap', 'budget', 'nego', 'coord', 'change'],
     erp: ['besoins', 'erp', 'bpmn', 'data', 'migr', 'formation', 'change', 'coord']
   };
@@ -1498,7 +1504,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
     }
   });
   /* Lien personnalisé : ?pour=JCDecaux&profil=po&lang=en */
-  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'], erp: ['ERP et déploiement', 'ERP & roll-out'] };
+  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'], erp: ['ERP et déploiement', 'ERP & roll-out'], bi: 'Business Intelligence' };
   var qs = null;
   try { qs = new URLSearchParams(location.search); } catch(e) {}
   var qPour = qs ? (qs.get('pour') || qs.get('for') || '').trim().slice(0, 60) : '';
@@ -1515,6 +1521,9 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
     pm: { a: ['Chef de projet', 'Project manager'], b: ['Transformation digitale', 'Digital transformation'],
       lead: ["Je cadre les besoins, je coordonne les équipes et je suis l'avancement jusqu'à la livraison, avec des méthodes agiles et un vrai souci du budget.",
              'I scope needs, coordinate teams and track progress through to delivery, using Agile methods and keeping a close eye on budget.'] },
+    bi: { a: ['Business Intelligence', 'Business Intelligence'], b: ['Business Analyst', 'Business Analyst'],
+      lead: ["Je structure les données, je construis des modèles en étoile et des tableaux de bord Power BI, et je relie chaque indicateur à un vrai besoin métier.",
+             'I structure data, build star schemas and Power BI dashboards, and tie every KPI to a real business need.'] },
     erp: { a: ['Déploiement ERP', 'ERP roll-out'], b: ['Conduite du changement', 'Change management'],
       lead: ["Je fais le lien entre les équipes terrain et les outils qui les servent. J'analyse les besoins, je paramètre l'ERP, je structure les données et j'accompagne les utilisateurs jusqu'à l'adoption de l'outil.",
              'I connect field teams with the tools that serve them. I analyse needs, configure the ERP, structure the data and support users until the tool is adopted.'] }
