@@ -300,6 +300,15 @@ section.block>.wrap{padding-block:clamp(56px,8vw,96px);display:flex;flex-directi
 @media (max-width:860px){.event{grid-template-columns:1fr;gap:20px}}
 @media (max-width:480px){.gal.three{grid-template-columns:1fr 1fr}.gal.three .ph:first-child{grid-row:auto;grid-column:1 / -1;aspect-ratio:16/10;height:auto}}
 
+/* Bandeau personnalisé */
+.for{background:linear-gradient(90deg,var(--po-soft),var(--tx-soft));border-bottom:1px solid var(--line);animation:rise .5s ease-out}
+.for .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding-block:12px}
+.for-txt{font-size:var(--s-sm)}
+.for-txt b{font-weight:600}
+#for-name{color:var(--po)}
+.for-go{font:500 var(--s-xs)/1 var(--mono);text-underline-offset:4px}
+.for-x{margin-left:auto;width:30px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+
 /* Pont étudiants ↔ entreprises */
 .bridge{display:flex;align-items:center;margin-block:4px;max-width:440px}
 .node{flex:0 0 auto;display:flex;flex-direction:column;gap:3px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
@@ -479,6 +488,15 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
 </header>
 
 <main id="top">
+  <!-- BANDEAU PERSONNALISÉ (lien ?pour=Entreprise&profil=po) -->
+  <div class="for" id="for" hidden>
+    <div class="wrap">
+      <span class="for-txt"><span data-l="fr">Portfolio préparé pour</span><span data-l="en">Portfolio prepared for</span> <b id="for-name"></b><span id="for-role-wrap"> · <span data-l="fr">profil</span><span data-l="en">role</span> <b id="for-role"></b></span></span>
+      <a class="for-go" href="#match"><span data-l="fr">Voir l'adéquation avec votre offre</span><span data-l="en">See how I match your offer</span> ↓</a>
+      <button type="button" class="for-x" id="for-x" aria-label="Fermer">✕</button>
+    </div>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
@@ -658,8 +676,12 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
             <ul class="points">
               <li data-l="fr"><b>Pilotage du produit de bout en bout.</b> Responsable de la roadmap et du product backlog, j'ai rédigé l'ensemble des tickets (user stories, critères d'acceptation) pour l'équipe de développement et suivi l'avancement du produit.</li>
               <li data-l="en"><b>End-to-end product ownership.</b> Owned the roadmap and product backlog, wrote every ticket (user stories, acceptance criteria) for the development team and tracked product progress.</li>
-              <li data-l="fr"><b>Lien direct avec les utilisateurs.</b> Recueil des besoins auprès des utilisateurs de la plateforme, puis priorisation dans le backlog pour livrer d'abord ce qui compte pour eux.</li>
-              <li data-l="en"><b>Direct link with users.</b> Gathered needs from platform users and prioritised them in the backlog so the most valuable items shipped first.</li>
+              <li data-l="fr"><b>Refinement et cérémonies agiles.</b> Séances de refinement avec le Tech Lead et les développeurs pour clarifier les besoins et découper le travail en tickets parents et sous-tickets ; participation aux rétrospectives et rédaction des comptes-rendus.</li>
+              <li data-l="en"><b>Refinement and Agile ceremonies.</b> Ran refinement sessions with the Tech Lead and developers to clarify needs and split work into parent tickets and sub-tickets; took part in retrospectives and wrote the meeting notes.</li>
+              <li data-l="fr"><b>Qualification des bugs.</b> Analyse des écarts entre le comportement attendu et le livré, puis rédaction des tickets de correction pour l'équipe de développement.</li>
+              <li data-l="en"><b>Bug qualification.</b> Analysed gaps between expected and delivered behaviour, then wrote fix tickets for the development team.</li>
+              <li data-l="fr"><b>Lien direct avec les utilisateurs.</b> Recueil des besoins auprès des utilisateurs de la plateforme, puis priorisation dans le backlog pour livrer d'abord ce qui compte pour eux. Travail au quotidien en français et en anglais.</li>
+              <li data-l="en"><b>Direct link with users.</b> Gathered needs from platform users and prioritised them in the backlog so the most valuable items shipped first. Worked daily in both French and English.</li>
               <li data-l="fr"><b>Onboarding des nouveaux stagiaires.</b> Vidéo de démonstration de la plateforme, accompagnement sur les premières tâches et répartition des tickets.</li>
               <li data-l="en"><b>Onboarding new interns.</b> Recorded a platform demo video, guided newcomers through their first tasks and assigned tickets.</li>
             </ul>
@@ -1348,7 +1370,10 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
       ['backlog', 'Backlog et priorisation', 'Backlog & prioritisation', ['datalia', 'PRJ-02']],
       ['stories', 'User stories', 'User stories', ['datalia', 'PRJ-02']],
       ['roadmap', 'Roadmap produit', 'Product roadmap', ['datalia']],
-      ['scrum', 'Scrum / Agile', 'Scrum / Agile', ['datalia', 'PRJ-02']] ] },
+      ['scrum', 'Scrum / Agile', 'Scrum / Agile', ['datalia', 'PRJ-02']],
+      ['rituals', 'Refinement et rétrospectives', 'Refinement & retrospectives', ['datalia']],
+      ['bugs', 'Qualification des bugs et tests', 'Bug qualification & testing', ['datalia', 'PRJ-05']],
+      ['accept', "Critères d'acceptation", 'Acceptance criteria', ['datalia', 'PRJ-02']] ] },
     { g: 'tx', fr: 'Transformation digitale', en: 'Digital transformation', items: [
       ['bpmn', 'Modélisation BPMN', 'BPMN modelling', ['PRJ-04']],
       ['erp', 'ERP · O2C / P2P', 'ERP · O2C / P2P', ['PRJ-02']],
@@ -1367,7 +1392,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
       ['coord', "Coordination d'équipe", 'Team coordination', ['aeinpt', 'datalia']] ] }
   ];
   var PRESETS = {
-    po: ['besoins', 'backlog', 'stories', 'roadmap', 'scrum', 'coord'],
+    po: ['besoins', 'backlog', 'stories', 'accept', 'scrum', 'rituals', 'bugs', 'change'],
     tx: ['bpmn', 'erp', 'sap', 'n8n', 'migr', 'change'],
     ba: ['besoins', 'stories', 'bpmn', 'erp', 'pbi', 'sql'],
     pm: ['scrum', 'roadmap', 'budget', 'nego', 'coord', 'change']
@@ -1449,8 +1474,25 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
       if (i >= 0) open(i);
     }
   });
-  PRESETS.po.forEach(function(id){ sel[id] = true; });
+  /* Lien personnalisé : ?pour=JCDecaux&profil=po&lang=en */
+  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'] };
+  var qs = null;
+  try { qs = new URLSearchParams(location.search); } catch(e) {}
+  var qPour = qs ? (qs.get('pour') || qs.get('for') || '').trim().slice(0, 60) : '';
+  var qProf = qs ? (qs.get('profil') || qs.get('role') || '').trim().toLowerCase() : '';
+  var qLang = qs ? qs.get('lang') : null;
+  if (qLang === 'en' || qLang === 'fr') setLang(qLang);
+  if (!PRESETS[qProf]) qProf = 'po';
+  PRESETS[qProf].forEach(function(id){ sel[id] = true; });
   renderMatch();
+  if (qPour) {
+    $('#for-name').textContent = qPour;
+    var r = ROLE[qProf];
+    $('#for-role').innerHTML = typeof r === 'string' ? r : bi(r[0], r[1]);
+    $('#for').hidden = false;
+    $('#for-x').addEventListener('click', function(){ $('#for').hidden = true; });
+    try { document.title = 'Anas El Belhadji · ' + qPour; } catch(e) {}
+  }
 
   /* ---------- Confettis ---------- */
   function confetti(x, y){
