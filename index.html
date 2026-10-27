@@ -519,8 +519,8 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
             <h1>Anas El Belhadji</h1>
           </div>
         </div>
-        <p class="roles"><span class="po">Product Owner</span><span class="x">×</span><span class="tx"><span data-l="fr">Transformation digitale</span><span data-l="en">Digital Transformation</span></span></p>
-        <p class="lead">
+        <p class="roles"><span class="po" id="role-a">Product Owner</span><span class="x">×</span><span class="tx" id="role-b"><span data-l="fr">Transformation digitale</span><span data-l="en">Digital Transformation</span></span></p>
+        <p class="lead" id="lead">
           <span data-l="fr">Je fais le lien entre les besoins des utilisateurs et les outils qui les servent. Je construis des backlogs, je modélise les processus métier et j'intègre l'IA là où elle fait vraiment gagner du temps.</span>
           <span data-l="en">I connect what users need with the tools that serve them. I build backlogs, model business processes and bring AI in where it genuinely saves time.</span>
         </p>
@@ -1506,6 +1506,25 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
   var qLang = qs ? qs.get('lang') : null;
   if (qLang === 'en' || qLang === 'fr') setLang(qLang);
   if (!PRESETS[qProf]) qProf = 'po';
+  /* Titre et accroche du haut de page selon le profil */
+  var HERO = {
+    tx: { a: ['Transformation digitale', 'Digital transformation'], b: ['Product Owner', 'Product Owner'] },
+    ba: { a: ['Business Analyst', 'Business Analyst'], b: ['Transformation digitale', 'Digital transformation'],
+      lead: ["Je traduis les besoins métier en spécifications claires, je modélise les processus et j'appuie les décisions sur les données, avec Power BI, SQL et des outils d'IA.",
+             'I turn business needs into clear specifications, model processes and back decisions with data, using Power BI, SQL and AI tools.'] },
+    pm: { a: ['Chef de projet', 'Project manager'], b: ['Transformation digitale', 'Digital transformation'],
+      lead: ["Je cadre les besoins, je coordonne les équipes et je suis l'avancement jusqu'à la livraison, avec des méthodes agiles et un vrai souci du budget.",
+             'I scope needs, coordinate teams and track progress through to delivery, using Agile methods and keeping a close eye on budget.'] },
+    erp: { a: ['Déploiement ERP', 'ERP roll-out'], b: ['Conduite du changement', 'Change management'],
+      lead: ["Je fais le lien entre les équipes terrain et les outils qui les servent. J'analyse les besoins, je paramètre l'ERP, je structure les données et j'accompagne les utilisateurs jusqu'à l'adoption de l'outil.",
+             'I connect field teams with the tools that serve them. I analyse needs, configure the ERP, structure the data and support users until the tool is adopted.'] }
+  };
+  var hero = HERO[qProf];
+  if (hero) {
+    $('#role-a').innerHTML = bi(hero.a[0], hero.a[1]);
+    $('#role-b').innerHTML = bi(hero.b[0], hero.b[1]);
+    if (hero.lead) $('#lead').innerHTML = bi(hero.lead[0], hero.lead[1]);
+  }
   PRESETS[qProf].forEach(function(id){ sel[id] = true; });
   renderMatch();
   if (qPour) {
