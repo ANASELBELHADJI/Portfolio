@@ -648,6 +648,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
             <button type="button" id="pr-tx" data-preset="tx"><span data-l="fr">Transformation digitale</span><span data-l="en">Digital transformation</span></button>
             <button type="button" id="pr-ba" data-preset="ba">Business Analyst</button>
             <button type="button" id="pr-pm" data-preset="pm"><span data-l="fr">Chef de projet</span><span data-l="en">Project manager</span></button>
+            <button type="button" id="pr-erp" data-preset="erp"><span data-l="fr">ERP et déploiement</span><span data-l="en">ERP & roll-out</span></button>
             <button type="button" id="pr-clear" class="clear" data-preset="clear"><span data-l="fr">Effacer</span><span data-l="en">Clear</span></button>
           </div>
           <div id="skills" class="skills"></div>
@@ -1035,6 +1036,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
               <li><span>SkillFront</span><span class="v"><span data-l="fr">Certification</span><span data-l="en">Certificate</span></span></li>
               <li><span><span data-l="fr">Anglais</span><span data-l="en">English</span></span><span class="v">TOEIC 885</span></li>
               <li><span><span data-l="fr">Français</span><span data-l="en">French</span></span><span class="v"><span data-l="fr">Courant</span><span data-l="en">Fluent</span></span></li>
+              <li><span><span data-l="fr">Permis</span><span data-l="en">Driving licence</span></span><span class="v"><span data-l="fr">Permis B</span><span data-l="en">Category B</span></span></li>
             </ul>
           </div>
           <div class="panel">
@@ -1397,12 +1399,14 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
       ['sap', 'SAP Fiori · RAP', 'SAP Fiori · RAP', ['PRJ-03']],
       ['n8n', 'Automatisation n8n', 'n8n automation', ['mim']],
       ['migr', 'Migration de données', 'Data migration', ['PRJ-05']],
-      ['change', 'Conduite du changement', 'Change management', ['mim', 'datalia']] ] },
+      ['change', 'Conduite du changement', 'Change management', ['mim', 'datalia']],
+      ['formation', 'Formation des utilisateurs', 'User training', ['mim', 'datalia']] ] },
     { g: 'ia', fr: 'Data et IA', en: 'Data & AI', items: [
       ['pbi', 'Power BI · reporting', 'Power BI · reporting', ['mim', 'PRJ-02', 'PRJ-01']],
       ['genai', 'IA générative · RAG', 'Generative AI · RAG', ['PRJ-01', 'mim']],
       ['eval', 'Évaluation de modèles IA', 'AI model evaluation', ['PRJ-06']],
-      ['sql', 'SQL · ETL', 'SQL · ETL', ['PRJ-05']] ] },
+      ['sql', 'SQL · ETL', 'SQL · ETL', ['PRJ-05']],
+      ['data', 'Structuration des données', 'Data structuring', ['PRJ-05', 'PRJ-02', 'PRJ-01']] ] },
     { g: 'mg', fr: 'Gestion de projet', en: 'Project management', items: [
       ['budget', 'Budget et achats', 'Budget & procurement', ['aeinpt']],
       ['nego', 'Négociation', 'Negotiation', ['aeinpt']],
@@ -1412,7 +1416,8 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
     po: ['besoins', 'backlog', 'stories', 'accept', 'scrum', 'rituals', 'bugs', 'change'],
     tx: ['bpmn', 'erp', 'sap', 'n8n', 'migr', 'change'],
     ba: ['besoins', 'stories', 'bpmn', 'erp', 'pbi', 'sql'],
-    pm: ['scrum', 'roadmap', 'budget', 'nego', 'coord', 'change']
+    pm: ['scrum', 'roadmap', 'budget', 'nego', 'coord', 'change'],
+    erp: ['besoins', 'erp', 'bpmn', 'data', 'migr', 'formation', 'change', 'coord']
   };
   var KIND = {
     exp: { lane: 'po', fr: 'Expérience', en: 'Experience' },
@@ -1493,7 +1498,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
     }
   });
   /* Lien personnalisé : ?pour=JCDecaux&profil=po&lang=en */
-  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'] };
+  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'], erp: ['ERP et déploiement', 'ERP & roll-out'] };
   var qs = null;
   try { qs = new URLSearchParams(location.search); } catch(e) {}
   var qPour = qs ? (qs.get('pour') || qs.get('for') || '').trim().slice(0, 60) : '';
