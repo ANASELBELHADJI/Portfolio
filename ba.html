@@ -1244,8 +1244,8 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
     <div class="wrap">
       <div class="intro">
         <p class="eyebrow">Contact</p>
-        <h2><span data-l="fr">Parlons de vos données.</span><span data-l="en">Let's talk about your data.</span></h2>
-        <p><span data-l="fr">Je cherche un stage de fin d'études de 6 mois en Business Analysis ou en Business Intelligence, à partir de février 2027, à Lille ou partout en France. CV sur demande.</span><span data-l="en">I'm looking for a 6-month end-of-studies internship in business analysis or business intelligence, starting February 2027, in Lille or anywhere in France. CV available on request.</span></p>
+        <h2 id="ct-title"><span data-l="fr">Parlons de vos données.</span><span data-l="en">Let's talk about your data.</span></h2>
+        <p id="ct-text"><span data-l="fr">Je cherche un stage de fin d'études de 6 mois en Business Analysis ou en Business Intelligence, à partir de février 2027, à Lille ou partout en France. CV sur demande.</span><span data-l="en">I'm looking for a 6-month end-of-studies internship in business analysis or business intelligence, starting February 2027, in Lille or anywhere in France. CV available on request.</span></p>
         <p class="sky-hint">✦ <span data-l="fr">Bougez la souris sur ce ciel : l'astronomie est mon autre passion.</span><span data-l="en">Move your cursor across this sky: stargazing is my other passion.</span></p>
       </div>
       <div class="lines">
@@ -1689,6 +1689,22 @@ setTimeout(function(){
     $('#role-a').innerHTML = bi(hero.a[0], hero.a[1]);
     $('#role-b').innerHTML = bi(hero.b[0], hero.b[1]);
     if (hero.lead) $('#lead').innerHTML = bi(hero.lead[0], hero.lead[1]);
+  }
+  /* Texte du contact selon le profil */
+  var CT = {
+    po:   ['Parlons de votre prochain sprint.', "Let's talk about your next sprint.", 'en tant que Product Owner', 'as a Product Owner'],
+    amoa: ['Parlons de votre prochain projet.', "Let's talk about your next project.", 'en tant que chef de projet AMOA', 'as an AMOA project manager'],
+    tx:   ['Parlons de votre transformation.', "Let's talk about your transformation.", 'en transformation digitale', 'in digital transformation'],
+    pm:   ['Parlons de votre prochain projet.', "Let's talk about your next project.", 'en gestion de projet', 'in project management'],
+    erp:  ['Parlons de votre projet ERP.', "Let's talk about your ERP project.", 'sur un projet ERP : paramétrage, déploiement et accompagnement des utilisateurs', 'on an ERP project: configuration, roll-out and user support'],
+    ba:   ['Parlons de vos données.', "Let's talk about your data.", 'en tant que Business Analyst', 'as a Business Analyst'],
+    bi:   ['Parlons de vos données.', "Let's talk about your data.", 'en Business Intelligence', 'in business intelligence']
+  };
+  if (qs && (qs.get('profil') || qs.get('role')) && CT[qProf] && $('#ct-title')) {
+    var ct = CT[qProf];
+    $('#ct-title').innerHTML = bi(ct[0], ct[1]);
+    $('#ct-text').innerHTML = bi("Je cherche un stage de fin d'études de 6 mois " + ct[2] + ', à partir de février 2027, à Lille ou partout en France. CV sur demande.',
+                                 "I'm looking for a 6-month end-of-studies internship " + ct[3] + ', starting February 2027, in Lille or anywhere in France. CV available on request.');
   }
   PRESETS[qProf].forEach(function(id){ sel[id] = true; });
   renderMatch();
