@@ -458,6 +458,72 @@ section.block>.wrap{padding-block:clamp(56px,8vw,96px);display:flex;flex-directi
 .acts{display:flex;gap:6px}
 @media (max-width:460px){.acts{flex-direction:column}}
 
+/* Chaînes de données */
+.pipes{display:flex;flex-direction:column;gap:14px}
+.pipe{padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);display:flex;flex-direction:column;gap:16px;transition:border-color .2s}
+.pipe:hover{border-color:var(--muted)}
+.pipe-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.pipe-h>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pipe-h h3{font-size:1.15rem;font-weight:700}
+.ptag{align-self:flex-start;font:500 .68rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:999px}
+.ptag.ia{background:var(--ia-soft);color:var(--ia)}.ptag.tx{background:var(--tx-soft);color:var(--tx)}.ptag.po{background:var(--po-soft);color:var(--po)}
+.pipe-go{font:500 .74rem/1 var(--mono);padding:9px 11px;border-radius:6px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);cursor:pointer}
+.pipe-go:hover{border-color:var(--muted)}
+.flow-row{display:flex;align-items:stretch}
+.nd{flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:4px;padding:11px 12px;border-radius:8px;border:1px solid var(--line);border-top:3px solid var(--k);background:var(--bg);cursor:default;transition:transform .2s,box-shadow .2s}
+.nd:hover,.nd:focus-visible{transform:translateY(-3px);box-shadow:0 12px 24px -16px rgba(0,0,0,.6)}
+.nd b{font-family:var(--display);font-weight:700;font-size:.92rem;line-height:1.15}
+.nd>span{font:400 .68rem/1.35 var(--mono);color:var(--muted)}
+.nd.src{--k:var(--muted)}.nd.trf{--k:var(--ia)}.nd.out{--k:var(--tx)}.nd.chk{--k:var(--po)}
+.pl{flex:0 0 26px;align-self:center;height:2px;position:relative;overflow:hidden;background:repeating-linear-gradient(90deg,var(--line) 0 4px,transparent 4px 7px)}
+.pl i{position:absolute;top:-2px;left:-6px;width:6px;height:6px;border-radius:50%;background:var(--tx);animation:flow 1.8s linear infinite}
+.pipe:nth-child(2) .pl i{animation-delay:.3s}.pipe:nth-child(3) .pl i{animation-delay:.6s}.pipe:nth-child(4) .pl i{animation-delay:.9s}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font:400 .72rem/1 var(--mono);color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:14px;height:3px;border-radius:2px}
+.legend .src{background:var(--muted)}.legend .trf{background:var(--ia)}.legend .out{background:var(--tx)}.legend .chk{background:var(--po)}
+@media (max-width:760px){
+  .flow-row{flex-direction:column}
+  .pl{flex:0 0 18px;width:2px;height:18px;align-self:flex-start;margin-left:22px;background:repeating-linear-gradient(180deg,var(--line) 0 4px,transparent 4px 7px)}
+  .pl i{left:-2px;top:-6px;animation-name:flowy}
+}
+@keyframes flowy{from{top:-6px}to{top:100%}}
+
+
+/* Sections propres au profil : cycle en V (AMOA) */
+.vwrap{display:flex;flex-direction:column;gap:18px}
+.vbox{position:relative;width:100%;max-width:100%;aspect-ratio:1000/340;border:1px solid var(--line);border-radius:var(--radius);background:radial-gradient(600px circle at 50% 100%,var(--glow),transparent 70%),var(--surface)}
+.vsvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.vnodes{position:absolute;inset:0}
+.vnode{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;padding:0;border:0;background:none;color:var(--fg);font:inherit;cursor:pointer;max-width:20%}
+.vnode .dot{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:500 .8rem/1 var(--mono);background:var(--surface);border:2px solid var(--c);color:var(--c);transition:transform .2s,background .2s,box-shadow .2s}
+.vnode .t{font-family:var(--display);font-weight:700;font-size:.86rem;line-height:1.15;text-align:center;background:var(--surface);padding:2px 6px;border-radius:4px}
+.vnode:hover .dot,.vnode:focus-visible .dot{transform:scale(1.1)}
+.vnode[aria-selected="true"] .dot{background:var(--c);color:var(--bg);box-shadow:0 0 0 6px var(--cs)}
+.vlab,.vside{position:absolute;transform:translate(-50%,-50%);font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface);padding:3px 6px;border-radius:4px}
+.vlab.l1{left:50%;top:17.6%}.vlab.l2{left:50%;top:50%}
+.vside.left{left:9%;top:82%}.vside.right{left:91%;top:82%}
+.vpanel{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.vpanel>div{min-width:0;display:flex;flex-direction:column;gap:14px;animation:rise .35s ease-out both}
+.vpanel .sp-k{font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.vpanel h3{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:800;letter-spacing:-.02em}
+.vpanel p.d{color:var(--muted);font-size:var(--s-sm);max-width:56ch}
+.vpanel .deliv{display:flex;flex-wrap:wrap;gap:6px}
+.vpanel .deliv li{font:500 .76rem/1 var(--mono);padding:8px 10px;border-radius:6px;border:1px solid var(--c);background:var(--cs)}
+.vpanel .vp-proofs{display:flex;flex-direction:column;gap:8px}
+.vpanel .vp-proofs button{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;text-align:left;width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;font-size:var(--s-sm);cursor:pointer;transition:border-color .2s}
+.vpanel .vp-proofs button:hover{border-color:var(--muted)}
+.vpanel .pk{display:block;font:500 .66rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.vpanel .go{font:500 .72rem/1 var(--mono);color:var(--muted)}
+@media (max-width:760px){
+  .vbox{aspect-ratio:auto;padding:14px}
+  .vsvg,.vlab,.vside{display:none}
+  .vnodes{position:static;display:flex;flex-direction:column;gap:8px}
+  .vnode{position:static;transform:none;flex-direction:row;max-width:none;justify-content:flex-start;padding-left:calc(var(--lvl) * 18px)}
+  .vnode .t{text-align:left}
+  .vpanel{grid-template-columns:1fr}
+}
+
 /* Visionneuse photo (toujours sombre, quel que soit le thème) */
 .lb{position:fixed;inset:0;z-index:30;background:rgba(6,8,13,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding-block:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s linear .25s}
 .lb.open{opacity:1;visibility:visible;transition:opacity .25s}
@@ -1116,6 +1182,123 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
     </div>
   </section>
 
+  <!-- SIGNATURE AMOA : cycle en V -->
+  <section class="block sig" id="sig-amoa" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-l="fr">Méthode</span><span data-l="en">Method</span></p>
+        <h2><span data-l="fr">Mon rôle dans le cycle en V</span><span data-l="en">My role in the V-model</span></h2>
+        <p><span data-l="fr">Côté AMOA, je porte la voix du métier du début à la fin : du besoin exprimé jusqu'à l'outil adopté. Cliquez sur une étape du V.</span><span data-l="en">On the business side, I carry the users' voice from start to finish: from the stated need to the adopted tool. Click a step of the V.</span></p>
+      </div>
+      <div class="vwrap">
+        <div class="vbox" id="vbox">
+          <svg class="vsvg" viewBox="0 0 1000 340" preserveAspectRatio="none" aria-hidden="true">
+            <path id="vpath" d="M100 60 L300 170 L500 290 L700 170 L900 60" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="7 7"/>
+            <line x1="300" y1="170" x2="700" y2="170" stroke="var(--po)" stroke-width="1.5" stroke-dasharray="3 6" opacity=".7"/>
+            <line x1="100" y1="60" x2="900" y2="60" stroke="var(--tx)" stroke-width="1.5" stroke-dasharray="3 6" opacity=".7"/>
+            <circle r="7" fill="var(--tx)"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#vpath"/></animateMotion></circle>
+          </svg>
+          <span class="vlab l1"><span data-l="fr">valide</span><span data-l="en">validates</span></span>
+          <span class="vlab l2"><span data-l="fr">vérifie</span><span data-l="en">verifies</span></span>
+          <span class="vside left"><span data-l="fr">Définir</span><span data-l="en">Define</span></span>
+          <span class="vside right"><span data-l="fr">Valider</span><span data-l="en">Validate</span></span>
+          <div class="vnodes" id="vnodes"></div>
+        </div>
+        <div class="vpanel" id="vpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE ERP : flux Odoo -->
+  <section class="block sig" id="sig-erp" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">ERP</p>
+        <h2><span data-l="fr">Les flux que j'ai paramétrés dans Odoo</span><span data-l="en">The flows I configured in Odoo</span></h2>
+        <p><span data-l="fr">Du fournisseur au client, en passant par la production et la maintenance : chaque flux de bout en bout, sur une PME industrielle.</span><span data-l="en">From supplier to customer, through manufacturing and maintenance: each flow end to end, for an industrial SME.</span></p>
+      </div>
+      <div class="pipes">
+        <article class="pipe">
+          <div class="pipe-h"><div><span class="ptag tx">P2P</span><h3>Procure-to-Pay</h3></div><button type="button" class="pipe-go" data-open="PRJ-02"><span data-l="fr">Ouvrir le projet</span><span data-l="en">Open project</span> →</button></div>
+          <div class="flow-row">
+            <div class="nd src" tabindex="0"><b><span data-l="fr">Fournisseur</span><span data-l="en">Supplier</span></b><span><span data-l="fr">composants</span><span data-l="en">components</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Commande</span><span data-l="en">Purchase order</span></b><span><span data-l="fr">achat</span><span data-l="en">purchasing</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Réception</span><span data-l="en">Receipt</span></b><span><span data-l="fr">stock</span><span data-l="en">inventory</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Facture</span><span data-l="en">Bill</span></b><span><span data-l="fr">comptabilité</span><span data-l="en">accounting</span></span></div><div class="pl"><i></i></div>
+            <div class="nd out" tabindex="0"><b><span data-l="fr">Paiement</span><span data-l="en">Payment</span></b><span><span data-l="fr">fournisseur réglé</span><span data-l="en">supplier paid</span></span></div>
+          </div>
+        </article>
+        <article class="pipe">
+          <div class="pipe-h"><div><span class="ptag ia">MRP</span><h3><span data-l="fr">Production</span><span data-l="en">Manufacturing</span></h3></div><button type="button" class="pipe-go" data-open="PRJ-02"><span data-l="fr">Ouvrir le projet</span><span data-l="en">Open project</span> →</button></div>
+          <div class="flow-row">
+            <div class="nd src" tabindex="0"><b><span data-l="fr">Nomenclature</span><span data-l="en">Bill of materials</span></b><span><span data-l="fr">composants</span><span data-l="en">components</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Opérations</span><span data-l="en">Operations</span></b><span><span data-l="fr">gamme</span><span data-l="en">routing</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Centres de travail</span><span data-l="en">Work centres</span></b><span><span data-l="fr">capacités</span><span data-l="en">capacity</span></span></div><div class="pl"><i></i></div>
+            <div class="nd out" tabindex="0"><b><span data-l="fr">Ordre de fabrication</span><span data-l="en">Manufacturing order</span></b><span><span data-l="fr">100 bornes</span><span data-l="en">100 units</span></span></div>
+          </div>
+        </article>
+        <article class="pipe">
+          <div class="pipe-h"><div><span class="ptag po">O2C</span><h3>Order-to-Cash</h3></div><button type="button" class="pipe-go" data-open="PRJ-02"><span data-l="fr">Ouvrir le projet</span><span data-l="en">Open project</span> →</button></div>
+          <div class="flow-row">
+            <div class="nd src" tabindex="0"><b><span data-l="fr">Commande client</span><span data-l="en">Sales order</span></b><span><span data-l="fr">90 bornes</span><span data-l="en">90 units</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Livraison</span><span data-l="en">Delivery</span></b><span><span data-l="fr">sortie de stock</span><span data-l="en">stock out</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Facture</span><span data-l="en">Invoice</span></b><span><span data-l="fr">client</span><span data-l="en">customer</span></span></div><div class="pl"><i></i></div>
+            <div class="nd out" tabindex="0"><b><span data-l="fr">Encaissement</span><span data-l="en">Payment received</span></b><span><span data-l="fr">trésorerie</span><span data-l="en">cash</span></span></div>
+          </div>
+        </article>
+        <article class="pipe">
+          <div class="pipe-h"><div><span class="ptag tx">GMAO</span><h3><span data-l="fr">Maintenance</span><span data-l="en">Maintenance</span></h3></div><button type="button" class="pipe-go" data-open="PRJ-02"><span data-l="fr">Ouvrir le projet</span><span data-l="en">Open project</span> →</button></div>
+          <div class="flow-row">
+            <div class="nd src" tabindex="0"><b><span data-l="fr">Équipements</span><span data-l="en">Equipment</span></b><span><span data-l="fr">référencés</span><span data-l="en">registered</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Demandes de maintenance</span><span data-l="en">Maintenance requests</span></b><span><span data-l="fr">module Maintenance</span><span data-l="en">Maintenance app</span></span></div><div class="pl"><i></i></div>
+            <div class="nd out" tabindex="0"><b><span data-l="fr">Suivi des interventions</span><span data-l="en">Work tracking</span></b><span>Odoo 19</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="aside-note" data-l="fr"><b>Et autour des flux.</b> Cahier des charges, benchmark face à SAP S/4HANA, Dynamics 365 et Sage X3, 11 user stories sur Jira en 4 sprints, déploiement sur Debian 12 et reporting du chiffre d'affaires dans Power BI.</p>
+      <p class="aside-note" data-l="en"><b>And around the flows.</b> Requirements spec, benchmark against SAP S/4HANA, Dynamics 365 and Sage X3, 11 user stories in Jira over 4 sprints, deployment on Debian 12 and revenue reporting in Power BI.</p>
+    </div>
+  </section>
+
+  <!-- SIGNATURE TRANSFORMATION : chantiers d'automatisation -->
+  <section class="block sig" id="sig-tx" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><span data-l="fr">Transformation</span><span data-l="en">Transformation</span></p>
+        <h2><span data-l="fr">Automatiser, piloter, faire adopter</span><span data-l="en">Automate, measure, drive adoption</span></h2>
+        <p><span data-l="fr">Une transformation digitale réussit quand l'outil marche, se pilote et s'utilise. Voici comment je l'ai mis en pratique.</span><span data-l="en">A digital transformation succeeds when the tool works, can be measured and is actually used. Here is how I have put that into practice.</span></p>
+      </div>
+      <div class="pipes">
+        <article class="pipe">
+          <div class="pipe-h"><div><span class="ptag ia">01 · <span data-l="fr">Automatiser</span><span data-l="en">Automate</span></span><h3><span data-l="fr">Chatbots et workflows IA</span><span data-l="en">Chatbots and AI workflows</span></h3></div><button type="button" class="pipe-go" data-go="job-mim"><span data-l="fr">Voir l'expérience</span><span data-l="en">See experience</span> →</button></div>
+          <div class="flow-row">
+            <div class="nd src" tabindex="0"><b><span data-l="fr">Question client</span><span data-l="en">Client question</span></b><span><span data-l="fr">demande fréquente</span><span data-l="en">frequent request</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Workflow n8n</span><span data-l="en">n8n workflow</span></b><span><span data-l="fr">orchestration</span><span data-l="en">orchestration</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Chatbot IA</span><span data-l="en">AI chatbot</span></b><span><span data-l="fr">IA générative</span><span data-l="en">generative AI</span></span></div><div class="pl"><i></i></div>
+            <div class="nd out" tabindex="0"><b><span data-l="fr">Réponse</span><span data-l="en">Answer</span></b><span><span data-l="fr">temps libéré pour l'équipe</span><span data-l="en">time freed for the team</span></span></div>
+          </div>
+        </article>
+        <article class="pipe">
+          <div class="pipe-h"><div><span class="ptag tx">02 · <span data-l="fr">Piloter</span><span data-l="en">Measure</span></span><h3><span data-l="fr">Suivi des demandes clients</span><span data-l="en">Client request tracking</span></h3></div><button type="button" class="pipe-go" data-go="job-mim"><span data-l="fr">Voir l'expérience</span><span data-l="en">See experience</span> →</button></div>
+          <div class="flow-row">
+            <div class="nd src" tabindex="0"><b><span data-l="fr">Demandes clients</span><span data-l="en">Client requests</span></b><span><span data-l="fr">agence digitale</span><span data-l="en">digital agency</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Tableau Excel</span><span data-l="en">Excel tracker</span></b><span><span data-l="fr">suivi structuré</span><span data-l="en">structured log</span></span></div><div class="pl"><i></i></div>
+            <div class="nd out" tabindex="0"><b>Power BI</b><span><span data-l="fr">volume, types de services</span><span data-l="en">volume, service types</span></span></div>
+          </div>
+        </article>
+        <article class="pipe">
+          <div class="pipe-h"><div><span class="ptag po">03 · <span data-l="fr">Faire adopter</span><span data-l="en">Drive adoption</span></span><h3><span data-l="fr">Formation et onboarding</span><span data-l="en">Training and onboarding</span></h3></div><button type="button" class="pipe-go" data-go="job-datalia"><span data-l="fr">Voir l'expérience</span><span data-l="en">See experience</span> →</button></div>
+          <div class="flow-row">
+            <div class="nd src" tabindex="0"><b><span data-l="fr">Nouvel outil</span><span data-l="en">New tool</span></b><span><span data-l="fr">n8n, plateforme</span><span data-l="en">n8n, platform</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Vidéos de démo</span><span data-l="en">Demo videos</span></b><span><span data-l="fr">et rapports</span><span data-l="en">and reports</span></span></div><div class="pl"><i></i></div>
+            <div class="nd trf" tabindex="0"><b><span data-l="fr">Accompagnement</span><span data-l="en">Hands-on support</span></b><span><span data-l="fr">premières tâches</span><span data-l="en">first tasks</span></span></div><div class="pl"><i></i></div>
+            <div class="nd out" tabindex="0"><b><span data-l="fr">Équipes autonomes</span><span data-l="en">Self-sufficient teams</span></b><span>MIM · DATALIA</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="block contact" id="contact">
     <canvas id="sky" aria-hidden="true"></canvas>
@@ -1152,7 +1335,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Anas El Belhadji · <a class="xlink" id="xlink" href="https://anas-el-belhadji.vercel.app/ba"><span data-l="fr">Voir aussi mon profil Business Analyst · BI</span><span data-l="en">See also my Business Analyst · BI profile</span> →</a></span>
+    <span>© 2026 Anas El Belhadji</span>
     <span>Lille · <span data-l="fr">mobile partout en France</span><span data-l="en">open to relocation across France</span></span>
   </div>
 </footer>
@@ -1737,6 +1920,90 @@ setTimeout(function(){
   if ('ResizeObserver' in window) new ResizeObserver(reSky).observe(skySec); else window.addEventListener('resize', reSky);
   try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(){ readCols(); drawSky(0); }); } catch(e) {}
   new MutationObserver(function(){ readCols(); drawSky(0); }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+
+  } catch (err) { try { window.__errs.push((err && err.message || String(err)) + ' [' + __blk + ']'); console.error(err); } catch (_) {} }
+  /* ---------- Sections propres au profil ---------- */
+  var __blk = "Sections propres au profil";
+  try {
+  if (document.getElementById('sprint')) {
+    var SIG = { amoa: 'sig-amoa', erp: 'sig-erp', tx: 'sig-tx' };
+    var sigId = SIG[qProf];
+    if (sigId) { $('#sprint').hidden = true; document.getElementById(sigId).hidden = false; }
+    var goTo = function(p){
+      if (PROOF[p]) {
+        var t = document.getElementById(PROOF[p].go);
+        t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+        t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
+      } else {
+        var k = cards.findIndex(function(c){ return c.dataset.id === p; });
+        if (k >= 0) open(k);
+      }
+    };
+    $$('.sig .pipe-go').forEach(function(b){
+      b.addEventListener('click', function(){
+        if (b.dataset.open) goTo(b.dataset.open);
+        else { var t = document.getElementById(b.dataset.go); t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash'); }
+      });
+    });
+    /* Cycle en V */
+    var VST = [
+      { x: 10, y: 17.6, lvl: 0, lane: 'po', fr: 'Expression du besoin', en: 'Stating the need',
+        dfr: "Je recueille les attentes des utilisateurs, j'analyse l'existant, puis je formalise le tout dans un cahier des charges.",
+        den: 'I gather user expectations, analyse the current situation, then formalise everything in a requirements document.',
+        del: [['Cahier des charges', 'Requirements document'], ['Besoins priorisés', 'Prioritised needs']], proofs: ['datalia', 'PRJ-01', 'PRJ-02'] },
+      { x: 30, y: 50, lvl: 1, lane: 'po', fr: 'Spécifications fonctionnelles', en: 'Functional specifications',
+        dfr: "Je traduis le besoin en spécifications que l'équipe peut construire : processus BPMN, user stories et critères d'acceptation.",
+        den: 'I turn the need into specifications the team can build: BPMN processes, user stories and acceptance criteria.',
+        del: [['Modèles BPMN', 'BPMN models'], ['User stories', 'User stories'], ["Critères d'acceptation", 'Acceptance criteria']], proofs: ['PRJ-04', 'datalia', 'PRJ-02'] },
+      { x: 50, y: 85, lvl: 2, lane: 'ia', fr: 'Réalisation (MOE)', en: 'Build (delivery team)',
+        dfr: "L'équipe technique construit, et je reste son interlocuteur métier : refinement avec le Tech Lead et les développeurs, découpage en tickets, réponses aux questions.",
+        den: 'The technical team builds, and I stay their business contact: refinement with the Tech Lead and developers, ticket breakdown, answers to questions.',
+        del: [['Refinement', 'Refinement'], ['Tickets parents et sous-tickets', 'Parent tickets and sub-tickets'], ['Comptes-rendus', 'Meeting notes']], proofs: ['datalia'] },
+      { x: 70, y: 50, lvl: 1, lane: 'tx', fr: 'Recette fonctionnelle', en: 'Acceptance testing',
+        dfr: "Je vérifie que le livré correspond à l'attendu : qualification des bugs, cas de test et tickets de correction.",
+        den: 'I check that what was delivered matches what was expected: bug qualification, test cases and fix tickets.',
+        del: [['Qualification des bugs', 'Bug qualification'], ['Cas de test', 'Test cases'], ['Tickets de correction', 'Fix tickets']], proofs: ['datalia', 'PRJ-05'] },
+      { x: 90, y: 17.6, lvl: 0, lane: 'tx', fr: 'Déploiement et adoption', en: 'Roll-out and adoption',
+        dfr: "Je forme les utilisateurs et j'accompagne la prise en main, jusqu'à ce que l'outil soit utilisé au quotidien.",
+        den: 'I train users and support them as they get started, until the tool is used every day.',
+        del: [['Formations', 'Training'], ['Vidéos de démo', 'Demo videos'], ['Onboarding', 'Onboarding']], proofs: ['mim', 'datalia'] }
+    ];
+    var vnodes = $('#vnodes'), vpanel = $('#vpanel'), vcur = 0;
+    if (vnodes) {
+      vnodes.innerHTML = VST.map(function(s, i){
+        return '<button type="button" class="vnode" role="tab" data-lane="' + s.lane + '" data-i="' + i + '" style="left:' + s.x + '%;top:' + s.y + '%;--lvl:' + s.lvl + '" aria-selected="false">' +
+          '<span class="dot">' + (i + 1) + '</span><span class="t">' + bi(s.fr, s.en) + '</span></button>';
+      }).join('');
+      var showV = function(i){
+        vcur = i; var s = VST[i];
+        $$('.vnode', vnodes).forEach(function(b, j){ b.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+        vpanel.setAttribute('data-lane', s.lane);
+        vpanel.innerHTML =
+          '<div><span class="sp-k">' + bi('Étape', 'Step') + ' ' + (i + 1) + ' / ' + VST.length + '</span><h3>' + bi(s.fr, s.en) + '</h3>' +
+          '<p class="d">' + bi(s.dfr, s.den) + '</p><span class="pl-label">' + bi('Ce que je livre', 'What I deliver') + '</span>' +
+          '<ul class="deliv">' + s.del.map(function(d){ return '<li>' + bi(d[0], d[1]) + '</li>'; }).join('') + '</ul></div>' +
+          '<div style="animation-delay:80ms"><span class="pl-label">' + bi("Où je l'ai fait", 'Where I did it') + '</span><div class="vp-proofs">' +
+          s.proofs.map(function(p){
+            var info = proofInfo(p), kd = KIND[info.k];
+            var lg = info.go ? $('#' + info.go + ' .logo-tile img') : null;
+            return '<button type="button" data-proof="' + p + '"><span><span class="pk">' + bi(kd.fr, kd.en) + (info.id ? ' · ' + info.id : '') + '</span>' +
+              (lg ? '<img class="plogo" src="' + lg.src + '" alt="">' : '') + (info.html || bi(info.fr, info.en)) + '</span><span class="go">→</span></button>';
+          }).join('') + '</div></div>';
+      };
+      var vAuto = null;
+      var stopV = function(){ if (vAuto) { clearInterval(vAuto); vAuto = null; } };
+      vnodes.addEventListener('click', function(e){ var b = e.target.closest('.vnode'); if (b) { stopV(); showV(+b.dataset.i); } });
+      vpanel.addEventListener('click', function(e){ var b = e.target.closest('[data-proof]'); if (b) { stopV(); goTo(b.dataset.proof); } });
+      showV(0);
+      if (!reduce && sigId === 'sig-amoa' && 'IntersectionObserver' in window) {
+        var vStarted = false;
+        new IntersectionObserver(function(en){
+          if (en[0].isIntersecting && !vStarted) { vStarted = true; vAuto = setInterval(function(){ if (vcur === VST.length - 1) { stopV(); return; } showV(vcur + 1); }, 4000); }
+        }, { threshold: .4 }).observe(vpanel);
+        vpanel.addEventListener('pointerenter', stopV);
+      }
+    }
+  }
 
   } catch (err) { try { window.__errs.push((err && err.message || String(err)) + ' [' + __blk + ']'); console.error(err); } catch (_) {} }
   /* ---------- Copier email / téléphone ---------- */
