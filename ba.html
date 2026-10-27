@@ -719,6 +719,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
             <button type="button" id="pr-ba" data-preset="ba">Business Analyst</button>
             <button type="button" id="pr-bi" data-preset="bi">Business Intelligence</button>
             <button type="button" id="pr-pm" data-preset="pm"><span data-l="fr">Chef de projet</span><span data-l="en">Project manager</span></button>
+            <button type="button" id="pr-amoa" data-preset="amoa"><span data-l="fr">Chef de projet AMOA</span><span data-l="en">AMOA project manager</span></button>
             <button type="button" id="pr-erp" data-preset="erp"><span data-l="fr">ERP et déploiement</span><span data-l="en">ERP & roll-out</span></button>
             <button type="button" id="pr-clear" class="clear" data-preset="clear"><span data-l="fr">Effacer</span><span data-l="en">Clear</span></button>
           </div>
@@ -1538,7 +1539,8 @@ setTimeout(function(){
     ba: ['besoins', 'stories', 'accept', 'bpmn', 'data', 'sql', 'pbi', 'bugs'],
     bi: ['besoins', 'data', 'sql', 'migr', 'star', 'dax', 'pbi'],
     pm: ['scrum', 'roadmap', 'budget', 'nego', 'coord', 'change'],
-    erp: ['besoins', 'erp', 'bpmn', 'data', 'migr', 'formation', 'change', 'coord']
+    erp: ['besoins', 'erp', 'bpmn', 'data', 'migr', 'formation', 'change', 'coord'],
+    amoa: ['besoins', 'stories', 'accept', 'bpmn', 'bugs', 'change', 'formation', 'coord', 'budget']
   };
   var KIND = {
     exp: { lane: 'po', fr: 'Expérience', en: 'Experience' },
@@ -1619,7 +1621,7 @@ setTimeout(function(){
     }
   });
   /* Lien personnalisé : ?pour=JCDecaux&profil=po&lang=en */
-  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'], erp: ['ERP et déploiement', 'ERP & roll-out'], bi: 'Business Intelligence' };
+  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'], erp: ['ERP et déploiement', 'ERP & roll-out'], bi: 'Business Intelligence', amoa: ['Chef de projet AMOA', 'AMOA project manager'] };
   var qs = null;
   try { qs = new URLSearchParams(location.search); } catch(e) {}
   var qPour = qs ? (qs.get('pour') || qs.get('for') || '').trim().slice(0, 60) : '';
@@ -1639,6 +1641,9 @@ setTimeout(function(){
     bi: { a: ['Business Intelligence', 'Business Intelligence'], b: ['Business Analyst', 'Business Analyst'],
       lead: ["Je structure les données, je construis des modèles en étoile et des tableaux de bord Power BI, et je relie chaque indicateur à un vrai besoin métier.",
              'I structure data, build star schemas and Power BI dashboards, and tie every KPI to a real business need.'] },
+    amoa: { a: ['Chef de projet AMOA', 'AMOA project manager'], b: ['Transformation digitale', 'Digital transformation'],
+      lead: ["Je fais le lien entre le métier et les équipes techniques : je recueille et formalise les besoins, je rédige les spécifications, je prépare la recette et j'accompagne les utilisateurs jusqu'à l'adoption de l'outil.",
+             'I bridge business teams and technical teams: I gather and formalise needs, write specifications, prepare acceptance testing and support users until the tool is adopted.'] },
     erp: { a: ['Déploiement ERP', 'ERP roll-out'], b: ['Conduite du changement', 'Change management'],
       lead: ["Je fais le lien entre les équipes terrain et les outils qui les servent. J'analyse les besoins, je paramètre l'ERP, je structure les données et j'accompagne les utilisateurs jusqu'à l'adoption de l'outil.",
              'I connect field teams with the tools that serve them. I analyse needs, configure the ERP, structure the data and support users until the tool is adopted.'] }
