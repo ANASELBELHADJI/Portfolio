@@ -501,6 +501,20 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
 </header>
 
 <main id="top">
+  <!-- VERSION SANS JAVASCRIPT (ex. Brave avec « Bloquer les scripts ») -->
+  <noscript>
+    <style>
+      .ticket .more[hidden]{display:flex!important;flex-direction:column;gap:18px;margin-top:8px;padding-top:14px;border-top:1px dashed var(--line)}
+      .ticket{cursor:default}
+      .ticket:hover{transform:none}
+      .more-btn,#match,.rp-chart,.lang,.hint,.sky-hint,.launch,.grip,.lane-link,.prog-wrap .pl-label,.dropzone,.pipe-go,.ac .go,.for-go{display:none!important}
+      .rail button{cursor:default}
+      .nojs{border-bottom:1px solid var(--line);background:var(--surface-2)}
+      .nojs p{padding-block:10px;font-size:var(--s-sm);color:var(--muted)}
+    </style>
+    <div class="nojs"><div class="wrap"><p><span data-l="fr">Votre navigateur bloque JavaScript : la page s'affiche en version simple, avec tout le contenu. Autorisez les scripts pour profiter des animations et des éléments cliquables.</span><span data-l="en">Your browser is blocking JavaScript: the page shows a simple version with all the content. Allow scripts to enjoy the animations and clickable elements.</span></p></div></div>
+  </noscript>
+
   <!-- BANDEAU PERSONNALISÉ (lien ?pour=Entreprise&profil=po) -->
   <div class="for" id="for" hidden>
     <div class="wrap">
