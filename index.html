@@ -652,8 +652,8 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
         <p class="eyebrow"><span data-l="fr">Profil</span><span data-l="en">Profile</span></p>
         <h2><span data-l="fr">Deux métiers, un seul fil conducteur</span><span data-l="en">Two roles, one common thread</span></h2>
       </div>
-      <p class="profile-text" data-l="fr">Étudiant ingénieur en AMOA et en IA et Transformation Digitale, orienté Product Owner. Je pilote des backlogs Agile, j'écris des user stories et je fais le lien entre les utilisateurs et l'équipe technique. Côté transformation, je modélise les processus en BPMN, je paramètre des ERP et j'intègre l'IA dans les workflows avec n8n et des agents IA. J'aime transformer les besoins des utilisateurs en produits et en processus clairs, efficaces et faciles à adopter.</p>
-      <p class="profile-text" data-l="en">Engineering student specialised in business analysis (AMOA), AI and digital transformation, focused on Product Ownership. I run Agile backlogs, write user stories and act as the link between users and the technical team. On the transformation side, I model processes in BPMN, configure ERPs and build AI into workflows with n8n and AI agents. I enjoy turning user needs into products and processes that are clear, efficient and easy to adopt.</p>
+      <p class="profile-text" id="pf-fr" data-l="fr">Étudiant ingénieur en AMOA et en IA et Transformation Digitale, orienté Product Owner. Je pilote des backlogs Agile, j'écris des user stories et je fais le lien entre les utilisateurs et l'équipe technique. Côté transformation, je modélise les processus en BPMN, je paramètre des ERP et j'intègre l'IA dans les workflows avec n8n et des agents IA. J'aime transformer les besoins des utilisateurs en produits et en processus clairs, efficaces et faciles à adopter.</p>
+      <p class="profile-text" id="pf-en" data-l="en">Engineering student specialised in business analysis (AMOA), AI and digital transformation, focused on Product Ownership. I run Agile backlogs, write user stories and act as the link between users and the technical team. On the transformation side, I model processes in BPMN, configure ERPs and build AI into workflows with n8n and AI agents. I enjoy turning user needs into products and processes that are clear, efficient and easy to adopt.</p>
 
       <div class="venn">
         <svg viewBox="0 0 600 250" id="venn">
@@ -661,8 +661,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
           <circle class="zone" data-zone="po" tabindex="0" role="button" aria-label="Product Owner" cx="230" cy="125" r="110" fill="var(--po-soft)" stroke="var(--po)" stroke-width="1.5"/>
           <circle class="zone" data-zone="tx" tabindex="0" role="button" aria-label="Transformation digitale" cx="370" cy="125" r="110" fill="var(--tx-soft)" stroke="var(--tx)" stroke-width="1.5"/>
           <circle class="zone" data-zone="mid" tabindex="0" role="button" aria-label="Point de rencontre" cx="370" cy="125" r="110" clip-path="url(#clipL)" fill="var(--surface-2)" stroke="var(--fg)" stroke-width="0"/>
-          <text class="lbl" x="175" y="121" text-anchor="middle">Product</text>
-          <text class="lbl" x="175" y="145" text-anchor="middle">Owner</text>
+          <g id="venn-a"><text class="lbl" x="175" y="121" text-anchor="middle">Product</text><text class="lbl" x="175" y="145" text-anchor="middle">Owner</text></g>
           <g data-l="fr"><text class="lbl" x="425" y="121" text-anchor="middle">Transformation</text><text class="lbl" x="425" y="145" text-anchor="middle">digitale</text></g>
           <g data-l="en"><text class="lbl" x="425" y="121" text-anchor="middle">Digital</text><text class="lbl" x="425" y="145" text-anchor="middle">transformation</text></g>
           <text class="lbl" x="300" y="122" text-anchor="middle">Anas</text>
@@ -673,7 +672,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
       </div>
 
       <div class="lanes" id="lanes">
-        <div class="lane-col po">
+        <div class="lane-col po" id="lane-a">
           <p class="who">Product Owner</p>
           <h3><span data-l="fr">Comprendre et prioriser</span><span data-l="en">Understand and prioritise</span></h3>
           <p><span data-l="fr">Je traduis le besoin en backlog que l'équipe peut livrer.</span><span data-l="en">I turn needs into a backlog the team can deliver.</span></p>
@@ -1480,11 +1479,10 @@ setTimeout(function(){
     });
   }
   $$('.filters button').forEach(function(b){ b.addEventListener('click', function(){ applyFilter(b.dataset.f); }); });
-  $$('.lane-link[data-goto]').forEach(function(b){
-    b.addEventListener('click', function(){
-      applyFilter(b.dataset.goto);
-      document.getElementById('projets').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-    });
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('.lane-link[data-goto]'); if (!b) return;
+    applyFilter(b.dataset.goto);
+    document.getElementById('projets').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   });
 
   } catch (err) { try { window.__errs.push((err && err.message || String(err)) + ' [' + __blk + ']'); console.error(err); } catch (_) {} }
@@ -1800,6 +1798,54 @@ setTimeout(function(){
     $('#ct-title').innerHTML = bi(ct[0], ct[1]);
     $('#ct-text').innerHTML = bi("Je cherche un stage de fin d'études de 6 mois " + ct[2] + ', à partir de mi-janvier 2027, à Lille ou partout en France. CV sur demande.',
                                  "I'm looking for a 6-month end-of-studies internship " + ct[3] + ', starting mid-January 2027, in Lille or anywhere in France. CV available on request.');
+  }
+  /* Profil, schéma et colonne de gauche selon le profil */
+  var PF = {
+    pdm: { v: [['Product', 'Manager'], ['Product', 'Manager']],
+      p: ["orienté Product Manager. Je pars des besoins des utilisateurs pour construire la vision et la roadmap d'un produit, je priorise par la valeur et je suis l'avancement avec l'équipe technique. Côté transformation, je modélise les processus en BPMN, je paramètre des ERP et j'intègre l'IA dans les workflows avec n8n et des agents IA.",
+          'focused on Product Management. I start from user needs to build a product vision and roadmap, prioritise by value and track progress with the technical team. On the transformation side, I model processes in BPMN, configure ERPs and build AI into workflows with n8n and AI agents.'],
+      who: ['Product Manager', 'Product Manager'], t: ['Construire la vision produit', 'Build the product vision'],
+      s: ['Je pars du besoin utilisateur pour décider quoi construire, et pourquoi.', 'I start from user needs to decide what to build, and why.'],
+      li: [['Vision produit et roadmap', 'Product vision and roadmap'], ['Écoute des utilisateurs et recueil des besoins', 'User listening and needs gathering'], ['Priorisation par la valeur', 'Value-based prioritisation'], ['Suivi des indicateurs avec Power BI', 'KPI tracking with Power BI'], ['IA générative et agents IA', 'Generative AI and AI agents']],
+      go: 'po', gl: ['Voir les projets Produit', 'See Product projects'] },
+    amoa: { v: [['Chef de projet', 'AMOA'], ['AMOA project', 'manager']],
+      p: ["orienté chef de projet AMOA. Je recueille et formalise les besoins métier, je rédige les spécifications et les user stories, et je prépare la recette avec l'équipe technique. Côté transformation, je modélise les processus en BPMN, je paramètre des ERP et j'intègre l'IA dans les workflows avec n8n et des agents IA.",
+          'focused on business-side project management (AMOA). I gather and formalise business needs, write specifications and user stories, and prepare acceptance testing with the technical team. On the transformation side, I model processes in BPMN, configure ERPs and build AI into workflows with n8n and AI agents.'],
+      who: ['Chef de projet AMOA', 'AMOA project manager'], t: ['Porter la voix du métier', 'Carry the business voice'],
+      s: ['Je formalise le besoin, puis je vérifie que le livré y répond.', 'I formalise the need, then check that what is delivered meets it.'],
+      li: [['Analyse des besoins métier et de l\'existant', 'Analysis of business needs and current state'], ['Spécifications fonctionnelles', 'Functional specifications'], ["User stories et critères d'acceptation", 'User stories and acceptance criteria'], ['Recette : qualification des bugs, cas de test', 'Acceptance testing: bug qualification, test cases'], ['Interface entre le métier et la MOE', 'Bridge between business and delivery team']],
+      go: 'po', gl: ['Voir les projets Produit', 'See Product projects'] },
+    pm: { v: [['Chef de', 'projet'], ['Project', 'manager']],
+      p: ["orienté chef de projet. Je cadre les besoins, je planifie le travail en sprints, je suis l'avancement et je coordonne les équipes jusqu'à la livraison. Côté transformation, je modélise les processus en BPMN, je paramètre des ERP et j'intègre l'IA dans les workflows avec n8n et des agents IA.",
+          'focused on project management. I scope needs, plan work in sprints, track progress and coordinate teams through to delivery. On the transformation side, I model processes in BPMN, configure ERPs and build AI into workflows with n8n and AI agents.'],
+      who: ['Chef de projet', 'Project manager'], t: ['Cadrer et piloter', 'Scope and steer'],
+      s: ["Je fais avancer le projet du cadrage jusqu'à la livraison.", 'I move the project from scoping to delivery.'],
+      li: [['Cadrage et cahier des charges', 'Scoping and requirements'], ['Planification en sprints (Scrum)', 'Sprint planning (Scrum)'], ["Suivi de l'avancement et comptes-rendus", 'Progress tracking and meeting notes'], ["Budget et appels d'offres", 'Budget and calls for tenders'], ["Coordination d'équipes", 'Team coordination']],
+      go: 'po', gl: ['Voir les projets Produit', 'See Product projects'] },
+    erp: { v: [['Déploiement', 'ERP'], ['ERP', 'roll-out']],
+      p: ["orienté projets ERP. Je recueille les besoins, je paramètre les processus de l'entreprise dans l'ERP (achats, ventes, production, comptabilité) et j'accompagne les utilisateurs. Côté transformation, je modélise les processus en BPMN, je structure les données et j'intègre l'IA dans les workflows avec n8n et des agents IA.",
+          "focused on ERP projects. I gather needs, configure the company's processes in the ERP (purchasing, sales, manufacturing, accounting) and support users. On the transformation side, I model processes in BPMN, structure data and build AI into workflows with n8n and AI agents."],
+      who: ['Déploiement ERP', 'ERP roll-out'], t: ['Paramétrer et déployer', 'Configure and roll out'],
+      s: ["Je traduis les processus de l'entreprise dans l'ERP.", "I translate the company's processes into the ERP."],
+      li: [['Benchmark ERP : SAP S/4HANA, Dynamics 365, Sage X3', 'ERP benchmark: SAP S/4HANA, Dynamics 365, Sage X3'], ['Cycles Order-to-Cash et Procure-to-Pay', 'Order-to-Cash and Procure-to-Pay cycles'], ['Production (MRP), stocks et maintenance', 'Manufacturing (MRP), inventory and maintenance'], ['Paramétrage comptable', 'Accounting configuration'], ['Déploiement sur Debian 12 avec PostgreSQL', 'Deployment on Debian 12 with PostgreSQL']],
+      go: 'tx', gl: ['Voir les projets Transformation', 'See Transformation projects'] },
+    tx: { p: ["orienté transformation digitale. Je modélise les processus en BPMN, je paramètre des ERP et j'intègre l'IA dans les workflows avec n8n et des agents IA. Côté produit, je pilote des backlogs Agile, j'écris des user stories et je fais le lien entre les utilisateurs et l'équipe technique.",
+          'focused on digital transformation. I model processes in BPMN, configure ERPs and build AI into workflows with n8n and AI agents. On the product side, I run Agile backlogs, write user stories and act as the link between users and the technical team.'] }
+  };
+  var pf = PF[qProf];
+  if (pf && $('#pf-fr')) {
+    var PFX = ['Étudiant ingénieur en AMOA et en IA et Transformation Digitale, ', 'Engineering student specialised in business analysis (AMOA), AI and digital transformation, '];
+    var SFX = [' J’aime transformer les besoins des utilisateurs en produits et en processus clairs, efficaces et faciles à adopter.', ' I enjoy turning user needs into products and processes that are clear, efficient and easy to adopt.'];
+    $('#pf-fr').textContent = PFX[0] + pf.p[0] + SFX[0];
+    $('#pf-en').textContent = PFX[1] + pf.p[1] + SFX[1];
+    if (pf.v) {
+      var vt = function(l){ return '<text class="lbl" x="175" y="121" text-anchor="middle">' + l[0] + '</text><text class="lbl" x="175" y="145" text-anchor="middle">' + l[1] + '</text>'; };
+      $('#venn-a').innerHTML = '<g data-l="fr">' + vt(pf.v[0]) + '</g><g data-l="en">' + vt(pf.v[1]) + '</g>';
+      $('#venn [data-zone="po"]').setAttribute('aria-label', pf.who[0]);
+      $('#lane-a').innerHTML = '<p class="who">' + bi(pf.who[0], pf.who[1]) + '</p><h3>' + bi(pf.t[0], pf.t[1]) + '</h3><p>' + bi(pf.s[0], pf.s[1]) + '</p>' +
+        '<ul>' + pf.li.map(function(x){ return '<li>' + bi(x[0], x[1]) + '</li>'; }).join('') + '</ul>' +
+        '<button type="button" class="lane-link" data-goto="' + pf.go + '">' + bi(pf.gl[0], pf.gl[1]) + ' →</button>';
+    }
   }
   PRESETS[qProf].forEach(function(id){ sel[id] = true; });
   renderMatch();
