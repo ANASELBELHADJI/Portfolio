@@ -666,7 +666,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
           <a class="btn" href="https://www.linkedin.com/in/anas-el-belhadji/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
         <div class="facts">
-          <span><i class="dot" aria-hidden="true"></i><span data-l="fr">Disponible dès février 2027 · 6 mois</span><span data-l="en">Available from February 2027 · 6 months</span></span>
+          <span><i class="dot" aria-hidden="true"></i><span data-l="fr">Disponible dès mi-janvier 2027 · 6 mois</span><span data-l="en">Available from mid-January 2027 · 6 months</span></span>
           <span>Lille · <span data-l="fr">mobile partout en France</span><span data-l="en">open to relocation across France</span></span>
         </div>
       </div>
@@ -755,6 +755,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
             <button type="button" id="pr-ba" data-preset="ba">Business Analyst</button>
             <button type="button" id="pr-bi" data-preset="bi">Business Intelligence</button>
             <button type="button" id="pr-pm" data-preset="pm"><span data-l="fr">Chef de projet</span><span data-l="en">Project manager</span></button>
+            <button type="button" id="pr-pdm" data-preset="pdm">Product Manager</button>
             <button type="button" id="pr-amoa" data-preset="amoa"><span data-l="fr">Chef de projet AMOA</span><span data-l="en">AMOA project manager</span></button>
             <button type="button" id="pr-erp" data-preset="erp"><span data-l="fr">ERP et déploiement</span><span data-l="en">ERP & roll-out</span></button>
             <button type="button" id="pr-clear" class="clear" data-preset="clear"><span data-l="fr">Effacer</span><span data-l="en">Clear</span></button>
@@ -1245,7 +1246,7 @@ footer .wrap{padding-block:22px;display:flex;flex-wrap:wrap;justify-content:spac
       <div class="intro">
         <p class="eyebrow">Contact</p>
         <h2 id="ct-title"><span data-l="fr">Parlons de vos données.</span><span data-l="en">Let's talk about your data.</span></h2>
-        <p id="ct-text"><span data-l="fr">Je cherche un stage de fin d'études de 6 mois en Business Analysis ou en Business Intelligence, à partir de février 2027, à Lille ou partout en France. CV sur demande.</span><span data-l="en">I'm looking for a 6-month end-of-studies internship in business analysis or business intelligence, starting February 2027, in Lille or anywhere in France. CV available on request.</span></p>
+        <p id="ct-text"><span data-l="fr">Je cherche un stage de fin d'études de 6 mois en Business Analysis ou en Business Intelligence, à partir de mi-janvier 2027, à Lille ou partout en France. CV sur demande.</span><span data-l="en">I'm looking for a 6-month end-of-studies internship in business analysis or business intelligence, starting mid-January 2027, in Lille or anywhere in France. CV available on request.</span></p>
         <p class="sky-hint">✦ <span data-l="fr">Bougez la souris sur ce ciel : l'astronomie est mon autre passion.</span><span data-l="en">Move your cursor across this sky: stargazing is my other passion.</span></p>
       </div>
       <div class="lines">
@@ -1576,7 +1577,8 @@ setTimeout(function(){
     bi: ['besoins', 'data', 'sql', 'migr', 'star', 'dax', 'pbi'],
     pm: ['scrum', 'roadmap', 'budget', 'nego', 'coord', 'change'],
     erp: ['besoins', 'erp', 'bpmn', 'data', 'migr', 'formation', 'change', 'coord'],
-    amoa: ['besoins', 'stories', 'accept', 'bpmn', 'bugs', 'change', 'formation', 'coord', 'budget']
+    amoa: ['besoins', 'stories', 'accept', 'bpmn', 'bugs', 'change', 'formation', 'coord', 'budget'],
+    pdm: ['besoins', 'roadmap', 'backlog', 'stories', 'scrum', 'pbi', 'genai', 'change']
   };
   var KIND = {
     exp: { lane: 'po', fr: 'Expérience', en: 'Experience' },
@@ -1657,7 +1659,7 @@ setTimeout(function(){
     }
   });
   /* Lien personnalisé : ?pour=JCDecaux&profil=po&lang=en */
-  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'], erp: ['ERP et déploiement', 'ERP & roll-out'], bi: 'Business Intelligence', amoa: ['Chef de projet AMOA', 'AMOA project manager'] };
+  var ROLE = { po: 'Product Owner', tx: ['Transformation digitale', 'Digital transformation'], ba: 'Business Analyst', pm: ['Chef de projet', 'Project manager'], erp: ['ERP et déploiement', 'ERP & roll-out'], bi: 'Business Intelligence', amoa: ['Chef de projet AMOA', 'AMOA project manager'], pdm: 'Product Manager' };
   var qs = null;
   try { qs = new URLSearchParams(location.search); } catch(e) {}
   var qPour = qs ? (qs.get('pour') || qs.get('for') || '').trim().slice(0, 60) : '';
@@ -1677,6 +1679,9 @@ setTimeout(function(){
     bi: { a: ['Business Intelligence', 'Business Intelligence'], b: ['Business Analyst', 'Business Analyst'],
       lead: ["Je structure les données, je construis des modèles en étoile et des tableaux de bord Power BI, et je relie chaque indicateur à un vrai besoin métier.",
              'I structure data, build star schemas and Power BI dashboards, and tie every KPI to a real business need.'] },
+    pdm: { a: ['Product Manager', 'Product Manager'], b: ['Transformation digitale', 'Digital transformation'],
+      lead: ["Je pars des besoins des utilisateurs pour construire une vision produit : roadmap, priorisation par la valeur, suivi des indicateurs avec Power BI, et l'IA là où elle fait vraiment gagner du temps.",
+             'I start from user needs to build a product vision: roadmap, value-based prioritisation, KPI tracking with Power BI, and AI where it genuinely saves time.'] },
     amoa: { a: ['Chef de projet AMOA', 'AMOA project manager'], b: ['Transformation digitale', 'Digital transformation'],
       lead: ["Je fais le lien entre le métier et les équipes techniques : je recueille et formalise les besoins, je rédige les spécifications, je prépare la recette et j'accompagne les utilisateurs jusqu'à l'adoption de l'outil.",
              'I bridge business teams and technical teams: I gather and formalise needs, write specifications, prepare acceptance testing and support users until the tool is adopted.'] },
@@ -1692,6 +1697,7 @@ setTimeout(function(){
   }
   /* Texte du contact selon le profil */
   var CT = {
+    pdm:  ['Parlons de votre produit.', "Let's talk about your product.", 'en tant que Product Manager', 'as a Product Manager'],
     po:   ['Parlons de votre prochain sprint.', "Let's talk about your next sprint.", 'en tant que Product Owner', 'as a Product Owner'],
     amoa: ['Parlons de votre prochain projet.', "Let's talk about your next project.", 'en tant que chef de projet AMOA', 'as an AMOA project manager'],
     tx:   ['Parlons de votre transformation.', "Let's talk about your transformation.", 'en transformation digitale', 'in digital transformation'],
@@ -1703,8 +1709,8 @@ setTimeout(function(){
   if (qs && (qs.get('profil') || qs.get('role')) && CT[qProf] && $('#ct-title')) {
     var ct = CT[qProf];
     $('#ct-title').innerHTML = bi(ct[0], ct[1]);
-    $('#ct-text').innerHTML = bi("Je cherche un stage de fin d'études de 6 mois " + ct[2] + ', à partir de février 2027, à Lille ou partout en France. CV sur demande.',
-                                 "I'm looking for a 6-month end-of-studies internship " + ct[3] + ', starting February 2027, in Lille or anywhere in France. CV available on request.');
+    $('#ct-text').innerHTML = bi("Je cherche un stage de fin d'études de 6 mois " + ct[2] + ', à partir de mi-janvier 2027, à Lille ou partout en France. CV sur demande.',
+                                 "I'm looking for a 6-month end-of-studies internship " + ct[3] + ', starting mid-January 2027, in Lille or anywhere in France. CV available on request.');
   }
   PRESETS[qProf].forEach(function(id){ sel[id] = true; });
   renderMatch();
